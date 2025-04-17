@@ -1,0 +1,18 @@
+URJC Burguer Bienvenido!
+URJC Burguer Bienvenido!
+Nuevo pedido
+Nuevo pedido
+Cambiar idioma
+Cambiar idioma
+¿Qué quieres hacer?
+¿Qué quieres hacer?
+Añadir menú al pedido
+Añadir menú al pedido
+Añadir producto individual a pedido
+Añadir producto individual a pedido
+Cancelar
+Cancelar
+Selecciona la hamburguesa del menú
+Selecciona la hamburguesa del menú
+
+

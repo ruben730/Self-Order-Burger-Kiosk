@@ -1,0 +1,46 @@
+Bienvenido a URJC Burger
+Welcome to URJC Burger
+Dispuestos a hacer la mejor hamburgesa del mundo
+Ready to make the best hamburger in the world
+Selecciona un idioma
+Select a language
+Ingles
+English
+Español
+Spanish
+Portugues
+Portuguese
+Nuevo pedido
+New order
+Cambiar idioma
+Change language
+¿Qué quieres hacer?
+What do you want to do?
+Añadir menú al pedido
+Add menu to order
+Añadir producto individual a pedido
+Add individual product to order
+Cancelar
+Cancel
+Eliminar producto
+Delete product
+Finalizar pedido
+End order
+Pedido
+Order
+Volver
+Back
+Selecciona la hamburguesa del menú
+Select the burger from the menu
+
+
+
+
+
+
+
+
+
+
+
+

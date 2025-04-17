@@ -1,0 +1,10 @@
+package Manager;
+
+import java.io.IOException;
+
+public class BurgerKioskApplication {
+    public static void main(String[] args) throws IOException {
+        KioskManager kioskManager = new KioskManager();
+        kioskManager.start();
+    }
+}

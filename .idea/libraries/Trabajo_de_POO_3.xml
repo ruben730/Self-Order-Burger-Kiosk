@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Trabajo-de-POO 3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/UrjcBankServer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/Trabajo-de-POO 3.zip!/" />
+      <root url="jar://$PROJECT_DIR$/BurgerSelfOrderKioskSimulator.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

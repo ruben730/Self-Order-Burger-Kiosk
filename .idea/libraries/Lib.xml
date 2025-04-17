@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/BurgerSelfOrderKioskDemo/Lib/UrjcBankServer.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BurgerSelfOrderKioskDemo/Lib/AbsoluteLayout.jar!/" />
+      <root url="jar://$PROJECT_DIR$/BurgerSelfOrderKioskDemo/Lib/BurgerSelfOrderKioskSimulator.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
