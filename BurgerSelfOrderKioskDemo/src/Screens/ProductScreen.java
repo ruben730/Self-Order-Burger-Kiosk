@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Screens;
 
 import java.util.List;
@@ -11,8 +7,6 @@ import Manager.SimpleKiosk;
 import Manager.TranslatorManager;
 import Products.IndividualProduct;
 import Products.Order;
-
-
 /**
  *
  * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
@@ -33,8 +27,7 @@ public class ProductScreen implements KioskScreen{
         TranslatorManager manager = context.getTranslator(); // Obtener el manager de traducción
         SimpleKiosk kiosk = context.getKiosk(); // Obtener el quiosco
         CarrouselScreen carrousel = new CarrouselScreen(products); // Crear un carrusel con los productos
-        Order order = new Order(1);
-
+        Order order = context.getOrder(); //obtenemos el order actual sin perder informacion
         // Configurar la pantalla
         kiosk.clearScreen(); // Limpiar la pantalla
         kiosk.setMenuMode(); // Establecer el modo de menú
@@ -43,6 +36,7 @@ public class ProductScreen implements KioskScreen{
         // Establecer las opciones del menú
         kiosk.setOption('D', manager.translate("Añadir Producto"));
         kiosk.setOption('E', manager.translate("Volver"));
+        kiosk.setOption('F', "+1"); // Otro producto más
         kiosk.setOption('H', ">"); // Siguiente producto
         kiosk.setOption('G', "<"); // Producto anterior
 
@@ -66,7 +60,14 @@ public class ProductScreen implements KioskScreen{
                 case 'D': // Seleccionar el producto
                     kiosk.setDescription(manager.translate("Producto Guardado")+": "+ carrousel.getCurrentProduct().getName());
                     order.addProduct(carrousel.getCurrentProduct()); //Esto añade productos a la lista
-                    System.out.println("Productos "+order.getOrderText()); //<-- mira el terminal y ve como guarda
+                    //System.out.println("Productos "+order.getOrderText()); //<-- mira el terminal y ve como guarda
+                    //System.out.println("PRECIO QUE VA SUMANDO "+order.getTotalAmount());
+                    //System.out.println("Guardando producto: " + carrousel.getCurrentProduct().getName() + ", Precio: " + carrousel.getCurrentProduct().getPrice());
+                    break;
+                case 'F': //Ejercicio del examen
+                    displayProduct(kiosk, carrousel.getCurrentProduct());
+                    kiosk.setDescription(manager.translate("+1")+": "+ carrousel.getCurrentProduct().getName());
+                    order.addProduct(carrousel.getCurrentProduct()); //Esto añade productos a la lista
                     break;
                 case 'E': // Cancelar
                     nextScreen = (KioskScreen) new SectionScreen(); // Volver a la pantalla de sección

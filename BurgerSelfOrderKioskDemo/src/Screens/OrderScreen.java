@@ -8,6 +8,12 @@ import Manager.SimpleKiosk;
 import Manager.KioskScreen;
 import Manager.Context;
 import Manager.TranslatorManager;
+import Products.IndividualProduct;
+import Products.Order;
+import Products.Product;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -19,7 +25,7 @@ public class OrderScreen implements KioskScreen {
     @Override
     public KioskScreen show(Context context) {
         configureScreenButtons(context); // Configura los botones en la pantalla
-
+        Order order = context.getOrder();
         SimpleKiosk kiosk = context.getKiosk(); // Obtenemos el quiosco
 
         // Espera la pulsación de un botón
@@ -36,9 +42,28 @@ public class OrderScreen implements KioskScreen {
                 // Añadir menú
                 nextScreen = (KioskScreen) new MenuScreen(context.getMenuCard().getSection(2).getProducts());
                 break;
-            case 'C':
-                // Eliminar producto
-                deleteProduct(kiosk); // Llama al método para eliminar un producto
+            case 'C':// Eliminar producto NO VA AÚN
+                // 1. Obtener los productos como ArrayList<Product>
+                ArrayList<Product> orderProducts = new ArrayList<>(order.getProducts());
+                // 2. Filtrar y convertir a IndividualProduct (si es necesario)
+                List<IndividualProduct> individualProducts = new ArrayList<>();
+                for (Product product : orderProducts) {
+                    if (product instanceof IndividualProduct) {
+                        individualProducts.add((IndividualProduct) product);
+                    }
+                }
+                // 3. Crear el carrusel con los productos individuales
+                CarrouselScreen carrousel = new CarrouselScreen(individualProducts);
+                kiosk.clearScreen();
+                carrousel.configureScreenButtons();
+                char event2 = kiosk.waitPressButton();
+                switch (event2) {
+                     case 'H': // Siguiente producto. Funciona Perfecto
+                             break;
+                        case 'G': // Producto anterior. Funciona Perfecto
+                            break;
+                }
+
                 break;
             case 'D':
                 // Vamos a pantalla de pago
@@ -71,10 +96,13 @@ public class OrderScreen implements KioskScreen {
         kiosk.setOption('E', manager.translate("Cancelar"));
     }
 
-    private void deleteProduct(SimpleKiosk kiosk) {
-        // Aquí debe ir la lógica para eliminar un producto del pedido
+    private void deleteProduct(Order order) {
+        for (Product product: order.getProducts()) {
+
+        }
     }
 }
+
 
 
 

@@ -4,8 +4,11 @@ import java.io.*;
 import java.time.*;//utilizo * para que quede mas simplificado el codigo
 import java.time.format.DateTimeFormatter;
 import Manager.*;
+import Products.Product;
 import urjc.UrjcBankServer; //para pagos
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import javax.naming.CommunicationException;
 import Manager.TranslatorManager;
 import Products.Order;
@@ -27,10 +30,12 @@ public class PurshaseScreen implements KioskScreen {
         int totalToPay = order.getTotalAmount(); // Obtener el total a pagar en céntimos
         float totalToPayFloat = totalToPay / 100.0f; // Convertir el total a euros
 
+        System.out.println("Total to pay: " + totalToPayFloat); //<-- Para que veas qué pinta por terminal
+
         configureScreenButtons(kiosk); // Configura los botones de la pantalla
-        totalToPayFloat = order.getTotalAmount();
+
         // Mostramos la descripción inicial
-        kiosk.setDescription(orderToTxt + "\n Total: " + totalToPayFloat + " € \n" + translator.translate("Introduce la tarjeta de crédito"));
+        kiosk.setDescription(orderToTxt + "\n" + translator.translate("Total") +": " + totalToPayFloat + " € \n" + translator.translate("Introduce la tarjeta de crédito"));
 
         char event = kiosk.waitPressButton();
 
@@ -53,7 +58,9 @@ public class PurshaseScreen implements KioskScreen {
                     } catch (IOException e) {
                         newOrderNum = -1; // En caso de error devolvemos un valor por defecto
                     }
-                    writeOrderToFile(order, newOrderNum); // Escribimos la orden en el archivo
+                    //Hay que cuidar esto ya que solo se debe escribir en los ficheros si se ha pagado.
+                    writeOrderToFile(order, newOrderNum);// Escribimos la orden en el archivo
+                    writeCommandToFile(order, newOrderNum); // Escribimos la comanda en el archivo
 
                     // Generamos el ticket
                     ArrayList<String> ticket = new ArrayList<>();
@@ -66,19 +73,17 @@ public class PurshaseScreen implements KioskScreen {
                     kiosk.print(ticket); // Imprimimos el ticket
 
                     try {
-                        // Realizamos la operación bancaria
                         bank.doOperation(creditCardNumber, totalToPay);
                         kiosk.clearScreen();
                         kiosk.setMessageMode();
                         kiosk.setDescription("Pago realizado con éxito. \nRecoja su ticket abajo\nNúmero de pedido: " + newOrderNum);
-                        kiosk.waitToInCard(); // Pausa de un segundo
-
-                    } catch (CommunicationException e) {
-                        // Mostramos un error en caso de fallo de comunicación con el banco
+                        kiosk.waitToInCard();
+                    } catch (Exception e) { // Captura cualquier error, no solo CommunicationException
                         kiosk.clearScreen();
                         kiosk.setMessageMode();
-                        kiosk.setDescription("Error: " + e);
+                        kiosk.setDescription("Error en el pago " + e.getMessage());
                         kiosk.waitToInCard();
+                        return new WellcomeScreen();
                     }
                 } else {
                     // Manejo de error por falta de conexión bancaria
@@ -105,9 +110,7 @@ public class PurshaseScreen implements KioskScreen {
 
         try (BufferedReader reader = new BufferedReader(new FileReader(ACTUAL_ORDER_PATH));
              BufferedWriter writer = new BufferedWriter(new FileWriter(ACTUAL_ORDER_PATH))) {
-
             int orderNum = Integer.parseInt(reader.readLine()) + 1;
-
             if (orderNum == 100) {
                 orderNum = 0; // Reiniciamos si llegamos a 100
             }
@@ -125,7 +128,7 @@ public class PurshaseScreen implements KioskScreen {
         kiosk.setOption('B', "Cancelar pago"); // Opción para cancelar el pago
     }
 
-    private void writeOrderToFile(Order order, int orderNumber) {
+    private void writeCommandToFile(Order order, int orderNumber) {
         // Escribimos la orden en un archivo para cocina
         String COOKERS_COMMAND_PATH = "BurgerSelfOrderKioskDemo/src/Files/CoockersCommand.txt";
         try {
@@ -135,17 +138,81 @@ public class PurshaseScreen implements KioskScreen {
             }
             FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("========== COMANDA ==========");
+            bw.write("========== COMANDA =========");
             bw.newLine();
             bw.write("Número de pedido: " + orderNumber);
-            bw.write(order.getOrderNumber());
             bw.newLine();
-            bw.write("========== FIN COMANDA ==========");
+            bw.write("-----------------------------");
+            bw.newLine();
+            bw.write("            PEDIDO");
+            bw.newLine();
+            bw.write("-----------------------------");
+            bw.newLine();
+            // Usamos un Map para agrupar productos y sus cantidades
+            Map<Product, Integer> productQuantityMap = new HashMap<>();
+            // Contamos la cantidad de cada producto
+            for (Product product : order.getProducts()) {
+                productQuantityMap.merge(product, 1, Integer::sum);
+            }
+            // Pintamos cada producto solo una vez con su cantidad total
+            for (Map.Entry<Product, Integer> entry : productQuantityMap.entrySet()) {
+                Product product = entry.getKey();
+                int totalQuantity = entry.getValue();
+                bw.write("-  " + product.getName() + "  x" + totalQuantity);
+                bw.newLine();
+            }
+            bw.write("======== FIN COMANDA ========");
             bw.newLine();
             bw.close();
         } catch (Exception e) {
             WellcomeScreen wellcomeScreen = new WellcomeScreen();
-            //wellcomeScreen.show(context);
+            //wellcomeScreen.show();
+            e.printStackTrace();
+        }
+    }
+    public void writeOrderToFile(Order order, int newOrderNum) {
+        // Escribimos la orden en un archivo para cocina
+        String ORDERS_FILE_PATH = "BurgerSelfOrderKioskDemo/src/Files/orders";
+        try {
+            File file = new File(ORDERS_FILE_PATH);
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("========== PEDIDO =========");
+            bw.newLine();
+            bw.write("Número de pedido: " + newOrderNum);
+            bw.newLine();
+            bw.write("-----------------------------");
+            bw.newLine();
+            bw.write("            PEDIDO");
+            bw.newLine();
+            bw.write("-----------------------------");
+            bw.newLine();
+            // Usamos un Map para agrupar productos y sus cantidades
+            Map<Product, Integer> productQuantityMap = new HashMap<>();
+            // Contamos la cantidad de cada producto
+            for (Product product : order.getProducts()) {
+                productQuantityMap.merge(product, 1, Integer::sum);
+            }
+            // Pintamos cada producto solo una vez con su cantidad total
+            for (Map.Entry<Product, Integer> entry : productQuantityMap.entrySet()) {
+                Product product = entry.getKey();
+                int totalQuantity = entry.getValue();
+                bw.write("-  " + product.getName() + "  x" + totalQuantity);
+                bw.newLine();
+            }
+            int totalToPay = order.getTotalAmount();
+            float totalToPayFloat = totalToPay / 100.0f;
+            bw.write("         TOTAL "+totalToPayFloat+ "€");
+            bw.newLine();
+            bw.write("======== FIN PEDIDO ========");
+            bw.newLine();
+            bw.close();
+        } catch (Exception e) {
+            WellcomeScreen wellcomeScreen = new WellcomeScreen();
+            //wellcomeScreen.show();
             e.printStackTrace();
         }
     }

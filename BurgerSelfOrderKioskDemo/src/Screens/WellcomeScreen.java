@@ -61,7 +61,7 @@ public class WellcomeScreen implements KioskScreen {
         kiosk.setOption('C', manager.translate("Cambiar idioma"));
     }
 
-} // Fin de la clase
+}
 
 
             

@@ -40,6 +40,14 @@ Producto guardado
 Product saved
 Introduce la tarjeta de crédito
 Introduce the credit card
+Total
+Total
+Bebidas
+Drinks
+Complementos
+Complements
+Hamburguesas
+Hamburguers
 
 
 
