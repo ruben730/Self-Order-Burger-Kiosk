@@ -27,11 +27,12 @@ public class Order {
     }
 
     public int getOrderNumber() {return this.orderNumber;}
+
     public void addProduct(Product product) {
         this.products.add(product); // Añade el producto a la lista
     }
-    public int getTotalAmount() {
-        // Usa un stream para sumar los precios de todos los productos en la lista
+
+    public int getTotalAmount() { // Usa un stream para sumar los precios de todos los productos en la lista
         return this.products.stream().mapToInt(Product::getPrice).sum();
     }
 }

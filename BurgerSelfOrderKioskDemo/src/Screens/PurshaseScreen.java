@@ -28,7 +28,7 @@ public class PurshaseScreen implements KioskScreen {
         float totalToPayFloat = totalToPay / 100.0f; // Convertir el total a euros
 
         configureScreenButtons(kiosk); // Configura los botones de la pantalla
-
+        totalToPayFloat = order.getTotalAmount();
         // Mostramos la descripción inicial
         kiosk.setDescription(orderToTxt + "\n Total: " + totalToPayFloat + " € \n" + translator.translate("Introduce la tarjeta de crédito"));
 
@@ -41,7 +41,6 @@ public class PurshaseScreen implements KioskScreen {
             case 'B' -> {
                 return new WellcomeScreen();
             }
-
             case '1' -> {
                 // Validación de la tarjeta de crédito
                 kiosk.retainCreditCard(false); // Retenemos la tarjeta

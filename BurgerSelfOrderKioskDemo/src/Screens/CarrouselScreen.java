@@ -73,9 +73,7 @@ public class CarrouselScreen {
 
     private void updateUI() {
         IndividualProduct currentProduct = getCurrentProduct();
-        
         updateImage(currentProduct.getImageFileName());
-        
         updateDescription(currentProduct.getDescription());
     }
 

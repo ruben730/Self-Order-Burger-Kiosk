@@ -32,8 +32,14 @@ Volver
 Back
 Selecciona la hamburguesa del menú
 Select the burger from the menu
-
-
+Productos
+Products
+Añadir Producto
+Add Product
+Producto guardado
+Product saved
+Introduce la tarjeta de crédito
+Introduce the credit card
 
 
 

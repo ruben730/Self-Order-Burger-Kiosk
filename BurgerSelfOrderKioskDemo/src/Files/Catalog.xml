@@ -4,15 +4,15 @@
   <object class="java.util.ArrayList">
    <void method="add">
     <object class="Products.MenuCardSection">
-     <string>HAMBURGUESAS</string>
-     <string>PRODUCTOS/ImgHamburguesas.png</string>
+     <string>HAMBURGUESAS</string> <!--INICIO HAMBURGUESAS-->
+     <string>BurgerSelfOrderKioskDemo/src/Images/ImgHamburguesas.png</string>
      <object class="java.util.ArrayList">
       <void method="add">
        <object class="Products.IndividualProduct">
         <string>ANGUS</string>
         <string>Carne de black angus de 160 g
 Pan de hamburguesa &apos;BBQ BOURBON&apos;</string>
-        <string>PRODUCTOS/ANGUS.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/ANGUS.png</string>
         <int>2000</int>
        </object>
       </void>
@@ -21,7 +21,7 @@ Pan de hamburguesa &apos;BBQ BOURBON&apos;</string>
         <string>GALLEGA</string>
         <string>Carnes de res rubia Gallega de 160 g
 Panes de hamburguesa &apos;CRISTAL CROCAN&apos;</string>
-        <string>PRODUCTOS/GALLEGA.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/GALLEGA.png</string>
         <int>1800</int>
        </object>
       </void>
@@ -30,7 +30,7 @@ Panes de hamburguesa &apos;CRISTAL CROCAN&apos;</string>
         <string>POLLO</string>
         <string>Chicken supercrujiente.
 Pan brioche, salsa césar coreana</string>
-        <string>PRODUCTOS/POLLO.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/POLLO.png</string>
         <int>1500</int>
        </object>
       </void>
@@ -39,7 +39,7 @@ Pan brioche, salsa césar coreana</string>
         <string>VEGETAL</string>
         <string>Hecho a base de plantas.
 Pan brioche, salsa césar coreana</string>
-        <string>PRODUCTOS/VEGETAL.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/VEGETAL.png</string>
         <int>1000</int>
        </object>
       </void>
@@ -48,14 +48,14 @@ Pan brioche, salsa césar coreana</string>
    </void>
    <void method="add">
     <object class="Products.MenuCardSection">
-     <string>BEBIDAS</string>
-     <string>PRODUCTOS/ImgBebidas.png</string>
+     <string>BEBIDAS</string> <!--INICIO BEBIDAS -->
+     <string>BurgerSelfOrderKioskDemo/src/Images/ImgBebidas.png</string>
      <object class="java.util.ArrayList">
       <void method="add">
        <object class="Products.IndividualProduct">
         <string>COCA COLA NORMAL</string>
         <string>Coca Cola normal</string>
-        <string>PRODUCTOS/COCA_COLA_NORMAL.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/COCA_COLA_NORMAL.png</string>
         <int>150</int>
        </object>
       </void>
@@ -63,7 +63,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>COCA COLA ZERO</string>
         <string>Coca Cola. Sin azúcar</string>
-        <string>PRODUCTOS/COCA_COLA_ZERO.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/COCA_COLA_ZERO.png</string>
         <int>150</int>
        </object>
       </void>
@@ -71,7 +71,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>COCA COLA ZERO ZERO</string>
         <string>Coca Cola. Sin azúcar y sin cafeína</string>
-        <string>PRODUCTOS/COCA_COLA_ZERO_ZERO.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/COCA_COLA_ZERO_ZERO.png</string>
         <int>150</int>
        </object>
       </void>
@@ -79,7 +79,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>FANTA</string>
         <string>Fanta Naranja. Sin azúcares</string>
-        <string>PRODUCTOS/FANTA.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/FANTA.png</string>
         <int>150</int>
        </object>
       </void>
@@ -87,7 +87,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>AGUA</string>
         <string>Agua mineral</string>
-        <string>PRODUCTOS/AGUA.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/AGUA.png</string>
         <int>100</int>
        </object>
       </void>
@@ -95,7 +95,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>CERVEZA</string>
         <string>Cerveza Grande</string>
-        <string>PRODUCTOS/CERVEZA.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/CERVEZA.png</string>
         <int>200</int>
        </object>
       </void>
@@ -104,14 +104,14 @@ Pan brioche, salsa césar coreana</string>
    </void>
    <void method="add">
     <object class="Products.MenuCardSection">
-     <string>COMPLEMENTOS</string>
-     <string>PRODUCTOS/ImgComplementos.png</string>
+     <string>COMPLEMENTOS</string> <!-- INICIO COMPLEMENTOS -->
+     <string>BurgerSelfOrderKioskDemo/src/Images/ImgComplementos.png</string>
      <object class="java.util.ArrayList">
       <void method="add">
        <object class="Products.IndividualProduct">
         <string>ALITAS</string>
         <string>Alitas de pollo, grandes y sabrosas, para los hambrientos amantes del buen pollo.</string>
-        <string>PRODUCTOS/ALITAS.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/ALITAS.png</string>
         <int>400</int>
        </object>
       </void>
@@ -119,7 +119,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>AROS DE CEBOLLA</string>
         <string>Para compartir, redondos, sabrosos, crujientes y dorados</string>
-        <string>PRODUCTOS/AROS_DE_CEBOLLA.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/AROS_DE_CEBOLLA.png</string>
         <int>240</int>
        </object>
       </void>
@@ -127,7 +127,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>PATATAS_SUPREME</string>
         <string>Deliciosas Patatas Supreme con la nueva salsa Sour Cream.</string>
-        <string>PRODUCTOS/PATATAS_SUPREME.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/PATATAS_SUPREME.png</string>
         <int>350</int>
        </object>
       </void>
@@ -135,7 +135,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>NUGGETS</string>
         <string>Hechos de pollo rebozado, acompañados de estas deliciosas salsas: BBQ, Deluxe, Buffalo y Agridulce.</string>
-        <string>PRODUCTOS/NUGGETS.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/NUGGETS.png</string>
         <int>340</int>
        </object>
       </void>
@@ -143,7 +143,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>ENSALADA</string>
         <string>Ensalada de la Huerta con una mezcla de lechuga fresca y los mejores tomatitos cherry. Es el complemento ideal.</string>
-        <string>PRODUCTOS/ENSALADA.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/ENSALADA.png</string>
         <int>500</int>
        </object>
       </void>
@@ -151,7 +151,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>APPLE PIE</string>
         <string>Postre delicioso de pastel de manzana caliente con un toque de canela, envuelto en hojaldre.</string>
-        <string>PRODUCTOS/APPLE_PIE.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/APPLE_PIE.png</string>
         <int>300</int>
        </object>
       </void>
@@ -159,7 +159,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>SUNDAE CHOCOLATE</string>
         <string>Sundae de Chocolate Negro que combina nuestro helado con una rico sirope de chocolate negro.</string>
-        <string>PRODUCTOS/SUNDAE_CHOCOLATE.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/SUNDAE_CHOCOLATE.png</string>
         <int>350</int>
        </object>
       </void>
@@ -167,7 +167,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>PIÑA</string>
         <string>Deliciosa piña muy refrescante para consumir en cualquier momento del día</string>
-        <string>PRODUCTOS/PIÑA.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/PIÑA.png</string>
         <int>150</int>
        </object>
       </void>
@@ -175,7 +175,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>OREO</string>
         <string>Este delicioso postre combina nuestro helado con crujientes trozos de las clásicas galletas Oreo.</string>
-        <string>PRODUCTOS/OREO.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/OREO.png</string>
         <int>200</int>
        </object>
       </void>
@@ -183,7 +183,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>PATATAS FRITAS</string>
         <string>Las mejores, las más crujientes, las que tienen más sabor.</string>
-        <string>PRODUCTOS/PATATAS_FRITAS.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/PATATAS_FRITAS.png</string>
         <int>500</int>
        </object>
       </void>
@@ -191,7 +191,7 @@ Pan brioche, salsa césar coreana</string>
        <object class="Products.IndividualProduct">
         <string>NUGGETS_VEGETALES</string>
         <string>Crujientes, dorados, deliciosos. Los nuggets de toda la vida, con todo su sabor, pero hechos con plantas.</string>
-        <string>PRODUCTOS/NUGGETS_VEGETALES.png</string>
+        <string>BurgerSelfOrderKioskDemo/src/Images/NUGGETS_VEGETALES.png</string>
         <int>500</int>
        </object>
       </void>

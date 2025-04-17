@@ -13,6 +13,7 @@ import Manager.TranslatorManager;
  * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
  */
 public class SectionScreen implements KioskScreen {
+    //CLASE PERFECTA
     private static final String MEAL_IMG_PATH = "BurgerSelfOrderKioskDemo/src/Images/comida.png";
     @Override
     public KioskScreen show(Context context) {
@@ -40,8 +41,12 @@ public class SectionScreen implements KioskScreen {
                 nextScreen = (KioskScreen) new ProductScreen("Complementos", context.getMenuCard().getSection(2).getProducts());
                 break;
             case 'D':
-                // Si el usuario pulsa 'D', se carga la pantalla de productos de "Hamburguesas"
-                nextScreen = (KioskScreen) new ProductScreen("Hamburguesas", context.getMenuCard().getSection(3).getProducts());
+                // Si el usuario pulsa 'D', se carga la pantalla de productos de "Hamburguesas". Se accede a seccion 0 en el XML.
+                //Antes teníamos puesto...getSection(3).getProducts() y el XML solo tiene las seccions 0 (Ham), 1(Bebidas) y 2(Comple)
+                nextScreen = (KioskScreen) new ProductScreen("Hamburguesas", context.getMenuCard().getSection(0).getProducts());
+                break;
+            case 'E':
+                nextScreen = new OrderScreen(); // Si se presiona 'E', volvemos a la pantalla de la orden
                 break;
             default:
                 // Si no se presiona ninguna opción válida, la pantalla actual se mantiene
@@ -61,7 +66,9 @@ public class SectionScreen implements KioskScreen {
         kiosk.setOption('B', translator.translate("Bebidas"));
         kiosk.setOption('C',  translator.translate("Complementos"));
         kiosk.setOption('D',  translator.translate("Hamburguesas"));
-        
+        kiosk.setOption('E',  translator.translate("Volver"));
+
+
         kiosk.setImage(MEAL_IMG_PATH); // Establecemos una imagen en la pantalla
         kiosk.setTitle(translator.translate("URJC Burguer")); // Establecemos el título de la pantalla
     }
