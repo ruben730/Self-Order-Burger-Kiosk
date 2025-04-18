@@ -32,6 +32,10 @@ public class SimpleKiosk {
         return kiosk.waitEvent(60); // Espera 60 segundos por un evento de botón
     }
 
+    //al llegar a pantalla de pago exitoso (recoja su ticket)
+    // volvemos a wellcome para otro consumidor
+    public char timeToRefreshKiosk(){return kiosk.waitEvent(7);}
+
     // Método que espera que el usuario introduzca una tarjeta en el kiosco, con un tiempo
     // máximo de espera de 60 segundos
     public char waitToInCard(){

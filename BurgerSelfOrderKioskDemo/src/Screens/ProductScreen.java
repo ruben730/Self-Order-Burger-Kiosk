@@ -24,19 +24,19 @@ public class ProductScreen implements KioskScreen{
 
     @Override
     public KioskScreen show(Context context) {
-        TranslatorManager manager = context.getTranslator(); // Obtener el manager de traducción
+        TranslatorManager translator = context.getTranslator(); // Obtener el manager de traducción
         SimpleKiosk kiosk = context.getKiosk(); // Obtener el quiosco
         CarrouselScreen carrousel = new CarrouselScreen(products); // Crear un carrusel con los productos
         Order order = context.getOrder(); //obtenemos el order actual sin perder informacion
         // Configurar la pantalla
         kiosk.clearScreen(); // Limpiar la pantalla
         kiosk.setMenuMode(); // Establecer el modo de menú
-        kiosk.setTitle(manager.translate("Productos")+" - " + section); // Establecer el título de la pantalla con la sección seleccionada
+        kiosk.setTitle(translator.translate("Productos")+" - " + translator.translate(section)); // Establecer el título de la pantalla con la sección seleccionada
         
         // Establecer las opciones del menú
-        kiosk.setOption('D', manager.translate("Añadir Producto"));
-        kiosk.setOption('E', manager.translate("Volver"));
-        kiosk.setOption('F', "+1"); // Otro producto más
+        kiosk.setOption('D', translator.translate("Añadir Producto"));
+        kiosk.setOption('E', translator.translate("Volver"));
+        kiosk.setOption('C', "+1"); // Otro producto más
         kiosk.setOption('H', ">"); // Siguiente producto
         kiosk.setOption('G', "<"); // Producto anterior
 
@@ -58,15 +58,12 @@ public class ProductScreen implements KioskScreen{
                     displayProduct(kiosk, carrousel.getCurrentProduct()); // Actualizar la pantalla con el producto anterior
                     break;
                 case 'D': // Seleccionar el producto
-                    kiosk.setDescription(manager.translate("Producto Guardado")+": "+ carrousel.getCurrentProduct().getName());
+                    kiosk.setDescription(translator.translate("Producto Guardado")+": "+ carrousel.getCurrentProduct().getName());
                     order.addProduct(carrousel.getCurrentProduct()); //Esto añade productos a la lista
-                    //System.out.println("Productos "+order.getOrderText()); //<-- mira el terminal y ve como guarda
-                    //System.out.println("PRECIO QUE VA SUMANDO "+order.getTotalAmount());
-                    //System.out.println("Guardando producto: " + carrousel.getCurrentProduct().getName() + ", Precio: " + carrousel.getCurrentProduct().getPrice());
                     break;
-                case 'F': //Ejercicio del examen
+                case 'C': //Ejercicio del examen
                     displayProduct(kiosk, carrousel.getCurrentProduct());
-                    kiosk.setDescription(manager.translate("+1")+": "+ carrousel.getCurrentProduct().getName());
+                    kiosk.setDescription("+1: "+ carrousel.getCurrentProduct().getName());
                     order.addProduct(carrousel.getCurrentProduct()); //Esto añade productos a la lista
                     break;
                 case 'E': // Cancelar

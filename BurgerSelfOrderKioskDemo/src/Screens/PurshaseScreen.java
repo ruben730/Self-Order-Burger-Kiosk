@@ -8,6 +8,7 @@ import Products.Product;
 import urjc.UrjcBankServer; //para pagos
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.naming.CommunicationException;
 import Manager.TranslatorManager;
@@ -17,7 +18,7 @@ import Products.Order;
  * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
  */ 
 public class PurshaseScreen implements KioskScreen {
-
+    //CLASE PERFECTA
     @Override 
     public KioskScreen show(Context context) {
         SimpleKiosk kiosk = context.getKiosk();
@@ -32,71 +33,79 @@ public class PurshaseScreen implements KioskScreen {
 
         System.out.println("Total to pay: " + totalToPayFloat); //<-- Para que veas qué pinta por terminal
 
-        configureScreenButtons(kiosk); // Configura los botones de la pantalla
+        configureScreenButtons(kiosk, context); // Configura los botones de la pantalla
 
         // Mostramos la descripción inicial
         kiosk.setDescription(orderToTxt + "\n" + translator.translate("Total") +": " + totalToPayFloat + " € \n" + translator.translate("Introduce la tarjeta de crédito"));
 
         char event = kiosk.waitPressButton();
 
+        KioskScreen nextScreen = this; // Inicializamos la pantalla siguiente como la actual
+
         switch (event) {
-            case 'A' -> {
-                return new OrderScreen();
+            case 'A', 'B' -> {
+                return new OrderScreen(); //en caso de cancelar pago o modificar pago se vuelve a order.
             }
-            case 'B' -> {
-                return new WellcomeScreen();
-            }
-            case '1' -> {
-                // Validación de la tarjeta de crédito
+            case '1' -> { //1 = a puerto donde se mete la tarjeta
                 kiosk.retainCreditCard(false); // Retenemos la tarjeta
                 long creditCardNumber = kiosk.getCardNumber(); // Obtener el número de tarjeta
 
-                if (bank.comunicationAvaiable()) { // Si la comunicación con el banco está disponible
-                    int newOrderNum;
-                    try {
-                        newOrderNum = incrementOrderNum(); // Incrementamos el número de pedido
-                    } catch (IOException e) {
-                        newOrderNum = -1; // En caso de error devolvemos un valor por defecto
-                    }
-                    //Hay que cuidar esto ya que solo se debe escribir en los ficheros si se ha pagado.
-                    writeOrderToFile(order, newOrderNum);// Escribimos la orden en el archivo
-                    writeCommandToFile(order, newOrderNum); // Escribimos la comanda en el archivo
-
-                    // Generamos el ticket
-                    ArrayList<String> ticket = new ArrayList<>();
-                    ticket.add("Nº " + newOrderNum);
-                    ticket.add("=====================");
-                    ticket.add(orderToTxt); // Agregamos el contenido de la orden
-                    ticket.add("=====================");
-                    ticket.add(totalToPayFloat + " €"); // Agregamos el total a pagar
-
-                    kiosk.print(ticket); // Imprimimos el ticket
+                if (bank.comunicationAvaiable()) {
+                    int newOrderNum = incrementOrderNum();
 
                     try {
+                        // Primero realizamos la operación bancaria
                         bank.doOperation(creditCardNumber, totalToPay);
+
+                        // Si no lanza excepción, se ha pagado -> ahora sí escribimos archivos
+                        writeOrderToFile(order, newOrderNum);
+                        writeCommandToFile(order, newOrderNum);
+
+                        // Generamos e imprimimos el ticket
+                        ArrayList<String> ticket = new ArrayList<>();
+                        ticket.add("URJC BURGUER");
+                        ticket.add("Nº"+ translator.translate("Pedido")+" "+ newOrderNum);
+                        ticket.add("=====================");
+                        ticket.add(orderToTxt);
+                        ticket.add("=====================");
+                        ticket.add(+totalToPayFloat + " €");
+                        kiosk.print(ticket);
+
                         kiosk.clearScreen();
                         kiosk.setMessageMode();
-                        kiosk.setDescription("Pago realizado con éxito. \nRecoja su ticket abajo\nNúmero de pedido: " + newOrderNum);
-                        kiosk.waitToInCard();
-                    } catch (Exception e) { // Captura cualquier error, no solo CommunicationException
+                        kiosk.setDescription(translator.translate("Pago realizado con éxito")+"!"
+                                +"\n"+translator.translate("Recoja su ticket abajo")+
+                                "\n"+translator.translate("Número de pedido") +": " + newOrderNum);
+
+                    } catch (Exception e) {
                         kiosk.clearScreen();
                         kiosk.setMessageMode();
-                        kiosk.setDescription("Error en el pago " + e.getMessage());
+                        kiosk.setDescription(translator.translate("Error en el pago")+": " + e.getMessage());
                         kiosk.waitToInCard();
                         return new WellcomeScreen();
                     }
                 } else {
-                    // Manejo de error por falta de conexión bancaria
                     kiosk.clearScreen();
                     kiosk.setMessageMode();
-                    kiosk.setDescription("Error al intentar comunicarse con su banco. \nContacte al personal.");
+                    kiosk.setDescription(translator.translate("Error al intentar comunicarse con su banco.")
+                            + "\n"+translator.translate("Contacte con el personal."));
                     kiosk.waitToInCard();
                     return new WellcomeScreen();
-                }
-                kiosk.expelCreditCard(5); // Expulsamos la tarjeta tras 5 segundos
-                return new WellcomeScreen();
-            }
+                } //fin if y else
+                kiosk.expelCreditCard(5); //usuario retira su tarjeta en +5 seg
+                kiosk.timeToRefreshKiosk(); //en 7 seg reiniciamos a pantalla wellcome
+                //Antes debemos limpiar la lista de los productos del usuario anterior
+                //no es necesario ver si no esta vacia ya que si ha llegado hasta aqui es porque ha pagado
+                //ciertacantidad de productos
+                order.getProducts().clear(); // vaciamos la lista de productos para el siguiente cliente
+                //aqui definimos el español como idioma antes de mostrar wellcome
+                TranslatorManager translatorManager = context.getTranslator();
+                translatorManager.selectLanguage("spanish");
+                context.setTranslator(translatorManager);
 
+                nextScreen = new WellcomeScreen();
+                return nextScreen; //reiniciamos para siguiente persona.
+            }
             default -> {
                 // Mantenemos la misma pantalla por defecto
                 return this;
@@ -104,28 +113,14 @@ public class PurshaseScreen implements KioskScreen {
         }
     }
 
-    private int incrementOrderNum() throws IOException {
-        // Método para incrementar el número de la orden
-        String ACTUAL_ORDER_PATH = "BurgerSelfOrderKioskDemo/src/Files/ActualOrder.txt";
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(ACTUAL_ORDER_PATH));
-             BufferedWriter writer = new BufferedWriter(new FileWriter(ACTUAL_ORDER_PATH))) {
-            int orderNum = Integer.parseInt(reader.readLine()) + 1;
-            if (orderNum == 100) {
-                orderNum = 0; // Reiniciamos si llegamos a 100
-            }
-            writer.write(String.valueOf(orderNum)); // Escribimos el nuevo número de pedido
-            return orderNum;
-        }
-    }
-
-    private void configureScreenButtons(SimpleKiosk kiosk) {
+    private void configureScreenButtons(SimpleKiosk kiosk, Context context) {
+        TranslatorManager translator = context.getTranslator(); // Obtener el traductor
         // Configuramos los botones de la pantalla
         kiosk.clearScreen(); // Limpiar la pantalla
         kiosk.setMessageMode(); // Establecer el modo de mensaje
         kiosk.setTitle("Pantalla de pago"); // Establecer el título de la pantalla
-        kiosk.setOption('A', "Modificar pedido"); // Opción para modificar el pedido
-        kiosk.setOption('B', "Cancelar pago"); // Opción para cancelar el pago
+        kiosk.setOption('A', translator.translate("Modificar Pedido")); // Opción para modificar el pedido
+        kiosk.setOption('B', translator.translate("Cancelar Pago")); // Opción para cancelar el pago
     }
 
     private void writeCommandToFile(Order order, int orderNumber) {
@@ -215,5 +210,56 @@ public class PurshaseScreen implements KioskScreen {
             //wellcomeScreen.show();
             e.printStackTrace();
         }
+    }
+    private int incrementOrderNum(){
+        String ACTUAL_ORDER_PATH = "BurgerSelfOrderKioskDemo/src/Files/ActualOrder.txt";
+
+        int orderNum;
+        LocalDate lastResetDate;
+
+        // Leer el número de orden y la fecha del último reinicio
+        try (BufferedReader reader = new BufferedReader(new FileReader(ACTUAL_ORDER_PATH))) {
+            String line = reader.readLine();
+            System.out.println("Contenido leído del archivo: " + line);
+
+            String[] parts = line.split(",");
+            orderNum = Integer.parseInt(parts[0]);
+            lastResetDate = LocalDate.parse(parts[1]);
+
+            System.out.println("Número de pedido leído: " + orderNum);
+            System.out.println("Última fecha de reinicio leída: " + lastResetDate);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Hora y fecha actual
+        LocalTime nowTime = LocalTime.now();
+        LocalDate today = LocalDate.now();
+
+        System.out.println("Hora actual: " + nowTime);
+        System.out.println("Fecha actual: " + today);
+        // Verificamos si ya pasaron las 6 AM y aún no se reinició hoy los números de pedido
+        if (nowTime.isAfter(LocalTime.of(6, 0)) && !lastResetDate.equals(today)) {
+            System.out.println(">> Reinicio diario detectado. Reiniciando número de orden a 0.");
+            orderNum = 0;
+            lastResetDate = today;
+        } else {
+            orderNum++;
+            System.out.println(">> Incrementando número de pedido. Nuevo valor: " + orderNum);
+        }
+
+        // Guardamos el nuevo número de orden y la fecha del último reinicio
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(ACTUAL_ORDER_PATH))) {
+            writer.write(orderNum + "," + lastResetDate.toString());
+            System.out.println("Guardado en archivo: " + orderNum + "," + lastResetDate);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Número de pedido devuelto: " + orderNum);
+        System.out.println("--------------------------------------------------");
+        return orderNum;
     }
 }//End.

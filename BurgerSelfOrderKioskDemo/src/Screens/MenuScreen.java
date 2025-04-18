@@ -44,17 +44,17 @@ public class MenuScreen extends CarrouselScreen {
     }
 
     private void configureScreenButtons(Context context) { // configuración de los botones
-        TranslatorManager manager = context.getTranslator(); // Usar el TranslatorManager del contexto
+        TranslatorManager translator = context.getTranslator(); // Usar el TranslatorManager del contexto
 
         SimpleKiosk kiosk = context.getKiosk();
         
         kiosk.clearScreen(); // Limpiar la pantalla
         kiosk.setMenuMode(); // Establecer el modo menú
-        kiosk.setTitle(manager.translate("Menu")); // Establecer el título traducido
+        kiosk.setTitle(translator.translate("Menu")); // Establecer el título traducido
         
         // Configurar las opciones del menú
-        kiosk.setOption('B', manager.translate("Añadir menu"));
-        kiosk.setOption('C', manager.translate("Cancelar"));
+        kiosk.setOption('B', translator.translate("Añadir menu"));
+        kiosk.setOption('C', translator.translate("Cancelar"));
         
         // Esta clase implementa un carrusel que va mostrando los productos del menú
         kiosk.setOption('G', "<"); // Opción para el producto anterior

@@ -1,0 +1,28 @@
+========== PEDIDO =========
+Número de pedido: 1
+-----------------------------
+            PEDIDO
+-----------------------------
+-  COCA COLA ZERO  x1
+-  ANGUS  x2
+-  COCA COLA NORMAL  x1
+-  ALITAS  x1
+         TOTAL 47.0€
+======== FIN PEDIDO ========
+========== PEDIDO =========
+Número de pedido: 2
+-----------------------------
+            PEDIDO
+-----------------------------
+-  ANGUS  x1
+         TOTAL 20.0€
+======== FIN PEDIDO ========
+========== PEDIDO =========
+Número de pedido: 3
+-----------------------------
+            PEDIDO
+-----------------------------
+-  GALLEGA  x2
+         TOTAL 36.0€
+======== FIN PEDIDO ========
+

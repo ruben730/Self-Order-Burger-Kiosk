@@ -12,7 +12,7 @@ import Products.IndividualProduct;
  * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
  */                             
 public class CarrouselScreen { 
-    
+    //CLASE PERFECTA
     private List<IndividualProduct> products;  //cambiar por ArrayList
     private int currentIndex; //Current Product
     

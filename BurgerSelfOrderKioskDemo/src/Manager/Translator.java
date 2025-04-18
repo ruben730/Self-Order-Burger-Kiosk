@@ -11,7 +11,7 @@ import java.util.HashMap;
  * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
  */
 public class Translator {
-    
+    //CLASE PERFECTA
     private final Map <String, String> translations; // Diccionario que guarda las traducciones: clave (texto en español) y valor (texto traducido)
     private final String language; // Idioma de destino para la traducción de los textos
 
@@ -19,10 +19,10 @@ public class Translator {
     public Translator(String language) throws FileNotFoundException, IOException {
         this.language = language;
         translations = new HashMap<>();
-        loadTranslationsFromDisk(); // Llama al método para cargar las traducciones desde un archivo en disco
+        loadTranslationsFromFile(); // Llama al método para cargar las traducciones desde un archivo en disco
     }
 
-    private void loadTranslationsFromDisk() throws FileNotFoundException, IOException {
+    private void loadTranslationsFromFile() throws FileNotFoundException, IOException {
         String fileName = language + ".txt"; // Construye el nombre del archivo usando el idioma y agregando ".txt"
         FileReader reader = new FileReader(fileName); // Abre el archivo de traducción para su lectura
         BufferedReader buffer = new BufferedReader(reader); // Crea un buffer para leer el archivo línea por línea

@@ -8,7 +8,7 @@ import java.util.*;
  * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
  */
 public class TranslatorManager {
-    
+    //CLASE PERFECTA
     private String currentLanguage;  // Lenguaje que está activo en ese momento
     private final Map <String, Translator> languages; // Diccionario que asocia el nombre del idioma con su respectivo Translator
    
@@ -32,13 +32,13 @@ public class TranslatorManager {
      */
     private void initializeTranslators() throws FileNotFoundException, IOException {
         // Crea un Translator para el idioma español y lo añade al diccionario
-        languages.put("spanish", new Translator("BurgerSelfOrderKioskDemo/src/Files/Spanish"));
+        languages.put("spanish", new Translator("BurgerSelfOrderKioskDemo/src/Files/spanish"));
         // Crea un Translator para el idioma inglés y lo añade al diccionario
-        languages.put("english", new Translator("BurgerSelfOrderKioskDemo/src/Files/English"));
+        languages.put("english", new Translator("BurgerSelfOrderKioskDemo/src/Files/english"));
         // Crea un Translator para el idioma catalán y lo añade al diccionario
-        languages.put("catalan", new Translator("BurgerSelfOrderKioskDemo/src/Files/Catalan"));
+        languages.put("catalan", new Translator("BurgerSelfOrderKioskDemo/src/Files/catalan"));
         // Crea un Translator para el idioma portugués y lo añade al diccionario
-        languages.put("portuguese", new Translator("BurgerSelfOrderKioskDemo/src/Files/Portuguese"));
+        languages.put("portuguese", new Translator("BurgerSelfOrderKioskDemo/src/Files/portuguese"));
     }
 
     /**

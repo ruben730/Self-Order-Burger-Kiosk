@@ -30,53 +30,40 @@ public class OrderScreen implements KioskScreen {
 
         // Espera la pulsación de un botón
         char event = kiosk.waitPressButton();
-        
+
         KioskScreen nextScreen = this; // Inicializa nextScreen a la pantalla actual
 
         switch (event) {
-            case 'A':
-                // Añadir producto individual
+            case 'A': // Añadir producto individual
                 nextScreen = (KioskScreen) new SectionScreen(); // Cambia a la pantalla de sección
                 break;
-            case 'B':
-                // Añadir menú
-                nextScreen = (KioskScreen) new MenuScreen(context.getMenuCard().getSection(2).getProducts());
-                break;
-            case 'C':// Eliminar producto NO VA AÚN
-                // 1. Obtener los productos como ArrayList<Product>
-                ArrayList<Product> orderProducts = new ArrayList<>(order.getProducts());
-                // 2. Filtrar y convertir a IndividualProduct (si es necesario)
-                List<IndividualProduct> individualProducts = new ArrayList<>();
-                for (Product product : orderProducts) {
-                    if (product instanceof IndividualProduct) {
-                        individualProducts.add((IndividualProduct) product);
-                    }
-                }
-                // 3. Crear el carrusel con los productos individuales
-                CarrouselScreen carrousel = new CarrouselScreen(individualProducts);
-                kiosk.clearScreen();
-                carrousel.configureScreenButtons();
-                char event2 = kiosk.waitPressButton();
-                switch (event2) {
-                     case 'H': // Siguiente producto. Funciona Perfecto
-                             break;
-                        case 'G': // Producto anterior. Funciona Perfecto
-                            break;
-                }
 
+            case 'B': // Añadir menú
+                //nextScreen = (KioskScreen) new MenuScreen(context.getMenuCard().getSection(2).getProducts());
                 break;
+
+            case 'C':// Eliminar producto NO VA AÚN
+                break;
+
             case 'D':
-                // Vamos a pantalla de pago
-                nextScreen = new PurshaseScreen(); // Cambia a la pantalla de compra
-                break;
-            case 'E':
-                // Cancelar
+                if (order.getProducts().isEmpty()){ //si no hay nada en pedido, al clickar simula no funcionar el botón
+                    //en realidad se regenera esta misma pantalla
+                    nextScreen = (KioskScreen) new OrderScreen();
+                }else { // Vamos a pantalla de pago
+                    nextScreen = new PurshaseScreen(); // Cambia a la pantalla de pago
+                }
+                    break;
+
+            case 'E': // Cancelar pedido implica borrar productos elegidos
+                if (!order.getProducts().isEmpty()) { // si NO está vacía
+                    order.getProducts().clear(); // vaciamos directamente la lista del pedido
+                }
                 nextScreen = new WellcomeScreen(); // Cambia a la pantalla de bienvenida
                 break;
             default:
                 break;
         }
-        return nextScreen; // Retorna la siguiente pantalla según la acción del usuario
+        return nextScreen; // Devuelve la siguiente pantalla según la acción del usuario
     }
 
     private void configureScreenButtons(Context context) {
@@ -93,7 +80,7 @@ public class OrderScreen implements KioskScreen {
         kiosk.setOption('B', manager.translate("Añadir menú al pedido"));
         kiosk.setOption('C', manager.translate("Eliminar producto"));
         kiosk.setOption('D', manager.translate("Finalizar pedido"));
-        kiosk.setOption('E', manager.translate("Cancelar"));
+        kiosk.setOption('E', manager.translate("Cancelar pedido"));
     }
 
     private void deleteProduct(Order order) {

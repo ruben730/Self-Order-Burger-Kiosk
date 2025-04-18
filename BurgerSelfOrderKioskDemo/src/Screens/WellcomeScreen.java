@@ -4,6 +4,8 @@
  */
 package Screens;
 
+import java.io.*;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
@@ -23,7 +25,7 @@ public class WellcomeScreen implements KioskScreen {
 
     @Override
     public KioskScreen show(Context context) {
-        Order orderProducts = new Order(5); // Creamos una nueva orden con capacidad para 5 productos
+        System.out.println("Hi! Developer");
         SimpleKiosk sk = context.getKiosk(); // Obtenemos el kiosco creado en el contexto
         sk.clearScreen(); // Limpiamos la pantalla del kiosco
         configureScreenButtons(context); // Configuramos los botones en la pantalla
@@ -41,14 +43,14 @@ public class WellcomeScreen implements KioskScreen {
     }
 
     private void configureScreenButtons(Context context) { // Método para configurar los botones en la pantalla
-        TranslatorManager manager = context.getTranslator(); // Usamos el TranslatorManager del contexto
+        TranslatorManager translator = context.getTranslator(); // Usamos el TranslatorManager del contexto
         SimpleKiosk kiosk = context.getKiosk(); // Obtenemos el kiosco del contexto
 
         kiosk.clearScreen(); // Limpiamos la pantalla
         kiosk.setMenuMode(); // Establecemos el kiosco en modo de menú
-        kiosk.setTitle(manager.translate("Bienvenido a URJC Burger")); // Establecemos el título en la pantalla
+        kiosk.setTitle(translator.translate("Bienvenido a URJC Burger")); // Establecemos el título en la pantalla
         kiosk.setImage(LOGO_PATH); // Establecemos la imagen del logo en la pantalla
-        kiosk.setDescription(manager.translate("Dispuestos a hacer la mejor hamburgesa del mundo"));
+        kiosk.setDescription("\n\n"+ translator.translate("Dispuestos a hacer la mejor hamburguesa del mundo"));
         
         // Formateamos la hora actual y la mostramos en el botón 'A'
         LocalTime nowTime = LocalTime.now();
@@ -57,10 +59,9 @@ public class WellcomeScreen implements KioskScreen {
         kiosk.setOption('A', formattedTime); // Establecemos la opción 'A' con la hora actual
 
         // Configuramos las opciones de los botones disponibles
-        kiosk.setOption('B', manager.translate("Nuevo pedido"));
-        kiosk.setOption('C', manager.translate("Cambiar idioma"));
+        kiosk.setOption('B', translator.translate("Nuevo pedido"));
+        kiosk.setOption('C', translator.translate("Cambiar idioma"));
     }
-
 }
 
 

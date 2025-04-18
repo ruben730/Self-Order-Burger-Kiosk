@@ -1,6 +1,6 @@
 Bienvenido a URJC Burger
 Welcome to URJC Burger
-Dispuestos a hacer la mejor hamburgesa del mundo
+Dispuestos a hacer la mejor hamburguesa del mundo
 Ready to make the best hamburger in the world
 Selecciona un idioma
 Select a language
@@ -36,7 +36,7 @@ Productos
 Products
 Añadir Producto
 Add Product
-Producto guardado
+Producto Guardado
 Product saved
 Introduce la tarjeta de crédito
 Introduce the credit card
@@ -48,11 +48,24 @@ Complementos
 Complements
 Hamburguesas
 Hamburguers
-
-
-
-
-
+Pago realizado con éxito
+Payment Successfully Completed
+Número de pedido
+Order Number
+Error en el pago
+Payment Error
+Recoja su ticket abajo
+Collect your ticket below
+Modificar Pedido
+Modify Order
+Cancelar Pago
+Cancel Payment
+Error al intentar comunicarse con su banco.
+Error attempting to communicate with your bank
+Contacte con el personal.
+Contact the staff.
+Cancelar pedido
+Cancel order
 
 
 

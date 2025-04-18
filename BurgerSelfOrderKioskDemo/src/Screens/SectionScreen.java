@@ -17,7 +17,7 @@ public class SectionScreen implements KioskScreen {
     private static final String MEAL_IMG_PATH = "BurgerSelfOrderKioskDemo/src/Images/comida.png";
     @Override
     public KioskScreen show(Context context) {
-       SimpleKiosk sk = context.getKiosk(); // Obtenemos el kiosco creado por el contexto
+       SimpleKiosk sk = context.getKiosk(); // Obtenemos el kiosco creado por el context
        sk.clearScreen(); // Limpiamos la pantalla del kiosco
 
         try {

@@ -49,22 +49,21 @@ public class LanguajeScreen implements KioskScreen {
         return nextScreen; //no se vuelve a wellcome. Vuelve a esta misma pagina.
      }
 
-     
     private void configureScreenButtons(Context context) {
-                TranslatorManager manager = context.getTranslator();
+                TranslatorManager translator = context.getTranslator();
                 SimpleKiosk kiosk = context.getKiosk();
                 
                 kiosk.clearScreen(); // Limpiamos la pantalla antes de actualizarla
                 kiosk.setMenuMode(); // Establecemos el modo menú en la pantalla
-                kiosk.setTitle(manager.translate("Selecciona un idioma")); // Título traducido
+                kiosk.setTitle(translator.translate("Selecciona un idioma")); // Título traducido
                 kiosk.setImage(LANGUAGE_IMG_PATH); // Establecemos la imagen para el idioma
-                kiosk.setDescription(manager.translate("Dispuestos a hacer la mejor hamburgesa del mundo")); // Descripción traducida
+                kiosk.setDescription("\n\n"+ translator.translate("Dispuestos a hacer la mejor hamburguesa del mundo"));
                 
                 // Configuramos las opciones del menú con las traducciones correspondientes
-                kiosk.setOption('B', manager.translate("Español"));
-                kiosk.setOption('C', manager.translate("Ingles"));
-                kiosk.setOption('D', manager.translate("Catalan"));
-                kiosk.setOption('E', manager.translate("Portugues"));
-                kiosk.setOption('F', manager.translate("Volver")); // Opción para volver
+                kiosk.setOption('B', translator.translate("Español"));
+                kiosk.setOption('C', translator.translate("Ingles"));
+                kiosk.setOption('D', translator.translate("Catalan"));
+                kiosk.setOption('E', translator.translate("Portugues"));
+                kiosk.setOption('F', translator.translate("Volver")); // Opción para volver
             }
 }

@@ -22,6 +22,8 @@ public class Context {
     public int orderNumber;
     private int kioskNumber;
     private int numberOfKiosks;
+    private final String ORDER_FILE_PATH = "BurgerSelfOrderKioskDemo/src/Files/ActualOrder.txt";
+    private final String KIOSK_CONFIG_FILE_PATH = "BurgerSelfOrderKioskDemo/src/Files/KioskConfiguration.txt";
 
     // Constructor
     public Context() throws IOException { //Context = Initialize
@@ -29,9 +31,8 @@ public class Context {
         this.translator = new TranslatorManager();
         this.kiosk = new SimpleKiosk(this.translator);
         this.menuCard = MenuCard.loadFromDisk();
-        String configFileName = "BurgerSelfOrderKioskDemo/src/Files/KioskConfiguration.txt";
 
-        try (InputStream stream = new FileInputStream(configFileName);
+        try (InputStream stream = new FileInputStream(KIOSK_CONFIG_FILE_PATH);
              Scanner scanner = new Scanner(stream)) {
             if (scanner.hasNextLine()) {
                 this.kioskNumber = Integer.parseInt(scanner.nextLine().trim());
@@ -42,14 +43,13 @@ public class Context {
             System.out.println("Configuración cargada: Kiosco #" + kioskNumber + ", Total kioscos: " + numberOfKiosks);
         } catch (FileNotFoundException e) {
             // Manejo de error si el archivo de configuración no se encuentra
-            System.err.println("Archivo de configuración no encontrado: " + configFileName);
+            System.err.println("Archivo de configuración no encontrado: " + KIOSK_CONFIG_FILE_PATH);
         } catch (NumberFormatException e) {
             // Manejo de error si hay un formato incorrecto en el archivo de configuración
             System.err.println("Formato incorrecto en el archivo de configuracion.");
         }
 
-        String orderFileName = "src\\KioskFiles\\ActualOrder.txt";
-        File orderFile = new File(orderFileName);
+        File orderFile = new File(ORDER_FILE_PATH);
         if (!orderFile.exists() || orderFile.length() == 0) {
             // Si el archivo no existe o está vacío, inicializar el número de pedido a 1
             try (Writer writer = new FileWriter(orderFile)) {
@@ -60,7 +60,8 @@ public class Context {
                 // Manejo de error al crear o escribir en el archivo
                 System.err.println("Error al crear o escribir en ActualOrder.txt: " + e.getMessage());
             }
-        } else {
+
+        } else {// si sí existe, actualizamos Número de pedido actual y el resto de cosas.
             // Leer el número de pedido actual desde el archivo
             try (InputStream orderStream = new FileInputStream(orderFile);
                  Scanner orderScanner = new Scanner(orderStream)) {
@@ -83,6 +84,7 @@ public class Context {
     public TranslatorManager getTranslator() {
         return translator; // Devuelve el gestor de traducciones actual
     }
+    public void setTranslator(TranslatorManager translator) {this.translator = translator;}
 
     public SimpleKiosk getKiosk() {
         return kiosk; // Devuelve la instancia de SimpleKiosk
