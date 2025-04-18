@@ -1,14 +1,14 @@
 Bienvenido a URJC Burger
-Bem-vindo à URJC Burger
-Dispuestos a hacer la mejor hamburgesa del mundo
+Bem-vindo ao URJC Burger
+Dispuestos a hacer la mejor hamburguesa del mundo
 Prontos para fazer o melhor hambúrguer do mundo
 Selecciona un idioma
 Selecione um idioma
-Inglés
+Ingles
 Inglês
 Español
 Espanhol
-Portugués
+Portugues
 Português
 Nuevo pedido
 Novo pedido
@@ -23,7 +23,7 @@ Adicionar produto individual ao pedido
 Cancelar
 Cancelar
 Eliminar producto
-Remover produto
+Excluir produto
 Finalizar pedido
 Finalizar pedido
 Pedido
@@ -32,3 +32,40 @@ Volver
 Voltar
 Selecciona la hamburguesa del menú
 Selecione o hambúrguer do menu
+Productos
+Produtos
+Añadir Producto
+Adicionar Produto
+Producto Guardado
+Produto salvo
+Introduce la tarjeta de crédito
+Insira o cartão de crédito
+Total
+Total
+Bebidas
+Bebidas
+Complementos
+Complementos
+Hamburguesas
+Hambúrgueres
+Pago realizado con éxito
+Pagamento realizado com sucesso
+Número de pedido
+Número do pedido
+Error en el pago
+Erro no pagamento
+Recoja su ticket abajo
+Pegue seu ticket abaixo
+Modificar Pedido
+Modificar Pedido
+Cancelar Pago
+Cancelar Pagamento
+Error al intentar comunicarse con su banco
+Erro ao tentar se comunicar com o seu banco
+Contacte con el personal.
+Entre em contato com a equipe.
+Cancelar pedido
+Cancelar pedido
+No olvide su tarjeta.
+Não se esqueça do seu cartão.
+

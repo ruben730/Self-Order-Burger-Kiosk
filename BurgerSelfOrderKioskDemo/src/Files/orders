@@ -3,11 +3,9 @@ Número de pedido: 1
 -----------------------------
             PEDIDO
 -----------------------------
--  COCA COLA ZERO  x1
--  ANGUS  x2
--  COCA COLA NORMAL  x1
--  ALITAS  x1
-         TOTAL 47.0€
+-  GALLEGA  x1
+-  NUGGETS  x1
+         TOTAL 21.4€
 ======== FIN PEDIDO ========
 ========== PEDIDO =========
 Número de pedido: 2
@@ -17,12 +15,3 @@ Número de pedido: 2
 -  ANGUS  x1
          TOTAL 20.0€
 ======== FIN PEDIDO ========
-========== PEDIDO =========
-Número de pedido: 3
------------------------------
-            PEDIDO
------------------------------
--  GALLEGA  x2
-         TOTAL 36.0€
-======== FIN PEDIDO ========
-

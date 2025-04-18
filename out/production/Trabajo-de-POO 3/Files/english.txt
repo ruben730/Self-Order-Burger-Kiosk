@@ -66,6 +66,8 @@ Contacte con el personal.
 Contact the staff.
 Cancelar pedido
 Cancel order
+No olvide su tarjeta.
+Do not forget your card
 
 
 

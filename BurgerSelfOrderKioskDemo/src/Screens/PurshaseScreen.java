@@ -74,7 +74,8 @@ public class PurshaseScreen implements KioskScreen {
                         kiosk.clearScreen();
                         kiosk.setMessageMode();
                         kiosk.setDescription(translator.translate("Pago realizado con éxito")+"!"
-                                +"\n"+translator.translate("Recoja su ticket abajo")+
+                                +"\n"+translator.translate("Recoja su ticket abajo")
+                                +"\n\n"+translator.translate("No olvide su tarjeta.")+
                                 "\n"+translator.translate("Número de pedido") +": " + newOrderNum);
 
                     } catch (Exception e) {
