@@ -38,8 +38,8 @@ public class OrderScreen implements KioskScreen {
                 nextScreen = (KioskScreen) new SectionScreen(); // Cambia a la pantalla de sección
                 break;
 
-            case 'B': // Añadir menú
-                //nextScreen = (KioskScreen) new MenuScreen(context.getMenuCard().getSection(2).getProducts());
+            case 'B': // Añadir menú. Mostramos hamburguesas primero.
+                nextScreen = (KioskScreen) new MenuScreen( "Hamburguesas" ,context.getMenuCard().getSection(0).getProducts(), 0);
                 break;
 
             case 'C':// Eliminar producto NO VA AÚN

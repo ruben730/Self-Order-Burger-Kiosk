@@ -38,6 +38,5 @@ public class IndividualProduct implements Product {
         this.imageFileName = imageFileName; // Asigna el nombre del archivo de imagen al atributo imageFileName
         this.price = price; // Asigna el precio al atributo price
     }
-
 }
 

@@ -15,7 +15,7 @@ import Products.IndividualProduct;
  */                             
 public class CarrouselScreen { 
     //CLASE PERFECTA
-    private List<IndividualProduct> products;  //cambiar por ArrayList
+    private List<IndividualProduct> products;
     private int currentIndex; //Current Product
     
     public CarrouselScreen(List<IndividualProduct> products) {
@@ -39,32 +39,6 @@ public class CarrouselScreen {
         // incrementamos el indice y usamos modulo para hacerlo circular
         currentIndex = (currentIndex + 1) % products.size();
         updateUI(); // actualizamos la interfaz despues de cambiar el producto
-    }
-
-    // metodo que intenta ajusta los botones segun el producto actual y el numero total de productos
-    protected void adjustCarruselButtons(int currentElement, int numberOfElements) {
-        //si estamos en el primer producto, deshabilitamos el boton 'anterior'
-        boolean isPreviousButtonEnabled = currentElement > 0;
-        
-        // si estamos en el ultimo producto, deshabilitamos el boton 'siguiente'
-        boolean isNextButtonEnabled = currentElement < numberOfElements - 1;
-        
-        // actualizamos los botones, habilitandolos o deshabilitandolos
-        updateButtonState("H", isPreviousButtonEnabled); // boton H (anterior)
-        updateButtonState("G", isNextButtonEnabled); // boton G (siguiente)
-    }
-
-    // metodo para actualizar los botones segun su estado
-    private void updateButtonState(String buttonName, boolean isEnabled) {
-        // aqui actualizas el estado de los botones en la interfaz grafica del kiosco
-        // en lugar de imprimir, habilitaras o deshabilitaras los botones reales
-        if (isEnabled) {
-            // habilitar el boton en la interfaz
-            System.out.println("Boton " + buttonName + " habilitado");
-        } else {
-            // deshabilitar el boton en la interfaz
-            System.out.println("Boton " + buttonName + " deshabilitado");
-        }
     }
 
     private void updateUI() {

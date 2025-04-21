@@ -26,16 +26,16 @@ public class PurshaseScreen implements KioskScreen {
         TranslatorManager translator = context.getTranslator(); // Obtener el traductor
         UrjcBankServer bank = new UrjcBankServer(); // Servidor del banco para procesar pagos
 
-        // Obtenemos los datos de la orden
+        // Obtenemos los datos del pedido
         String orderTextForConsumerTicket = order.getOrderTextForConsumerTicket(translator); //en el idioma
-        int totalToPay = order.getTotalAmount(); // Obtener el total a pagar en céntimos
+        int totalToPay = order.getTotalAmount(); // Obtener el total a pagar en céntimos, ejem. 2000ct = 20€
         float totalToPayFloat = totalToPay / 100.0f; // Convertir el total a euros
 
         System.out.println("Total to pay: " + totalToPayFloat); //<-- Para que veas qué pinta por terminal
 
         configureScreenButtons(kiosk, context); // Configura los botones de la pantalla
 
-        // Mostramos la descripción inicial
+        // Mostramos la descripción de la pantalla de pago
         kiosk.setDescription(orderTextForConsumerTicket + "\n" + translator.translate("Total") +": " + totalToPayFloat + " € \n" + translator.translate("Introduce la tarjeta de crédito"));
 
         char event = kiosk.waitPressButton();
@@ -46,7 +46,7 @@ public class PurshaseScreen implements KioskScreen {
             case 'A', 'B' -> {
                 return new OrderScreen(); //en caso de cancelar pago o modificar pago se vuelve a order.
             }
-            case '1' -> { //1 = a puerto donde se mete la tarjeta
+            case '1' -> { //1 igual a puerto donde se mete la tarjeta
                 kiosk.retainCreditCard(false); // Retenemos la tarjeta
                 long creditCardNumber = kiosk.getCardNumber(); // Obtener el número de tarjeta
 
@@ -61,7 +61,7 @@ public class PurshaseScreen implements KioskScreen {
                         writeOrderToFile(order, newOrderNum);
                         writeCommandToFile(order, newOrderNum);
 
-                        // Generamos e imprimimos el ticket
+                        // Generamos e imprimimos el ticket del cliente
                         ArrayList<String> ticket = new ArrayList<>();
                         ticket.add("URJC BURGUER");
                         ticket.add("Nº"+ translator.translate("Pedido")+" "+ newOrderNum);
@@ -73,6 +73,7 @@ public class PurshaseScreen implements KioskScreen {
 
                         kiosk.clearScreen();
                         kiosk.setMessageMode();
+                        //Mensaje de éxito
                         kiosk.setDescription(translator.translate("Pago realizado con éxito")+"!"
                                 +"\n"+translator.translate("Recoja su ticket abajo")
                                 +"\n\n"+translator.translate("No olvide su tarjeta.")+
@@ -93,11 +94,12 @@ public class PurshaseScreen implements KioskScreen {
                     kiosk.waitToInCard();
                     return new WellcomeScreen();
                 } //fin if y else
+
                 kiosk.expelCreditCard(5); //usuario retira su tarjeta en +5 seg
-                kiosk.timeToRefreshKiosk(); //en 7 seg reiniciamos a pantalla wellcome
+                kiosk.timeToRefreshKiosk(); //en 7 seg reiniciamos a pantalla wellcome para sigueinte consumidor
                 //Antes debemos limpiar la lista de los productos del usuario anterior
                 //no es necesario ver si no esta vacia ya que si ha llegado hasta aqui es porque ha pagado
-                //ciertacantidad de productos
+                //cierta cantidad (>0) de productos
                 order.getProducts().clear(); // vaciamos la lista de productos para el siguiente cliente
                 //aqui definimos el español como idioma antes de mostrar wellcome
                 TranslatorManager translatorManager = context.getTranslator();
@@ -221,14 +223,14 @@ public class PurshaseScreen implements KioskScreen {
         // Leer el número de orden y la fecha del último reinicio
         try (BufferedReader reader = new BufferedReader(new FileReader(ACTUAL_ORDER_PATH))) {
             String line = reader.readLine();
-            System.out.println("Contenido leído del archivo: " + line);
+            System.out.println("Contenido leído del archivo: " + line); //<- para que veas qué pinta por terminal
 
             String[] parts = line.split(",");
             orderNum = Integer.parseInt(parts[0]);
             lastResetDate = LocalDate.parse(parts[1]);
 
-            System.out.println("Número de pedido leído: " + orderNum);
-            System.out.println("Última fecha de reinicio leída: " + lastResetDate);
+            System.out.println("Número de pedido leído: " + orderNum);  //<- para que veas qué pinta por terminal
+            System.out.println("Última fecha de reinicio leída: " + lastResetDate);  //<- para que veas qué pinta por terminal
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -242,6 +244,7 @@ public class PurshaseScreen implements KioskScreen {
         System.out.println("Hora actual: " + nowTime);
         System.out.println("Fecha actual: " + today);
         // Verificamos si ya pasaron las 6 AM y aún no se reinició hoy los números de pedido
+        //A las 06:00 de todos los días ActualOrder se reinicia a 0.
         if (nowTime.isAfter(LocalTime.of(6, 0)) && !lastResetDate.equals(today)) {
             System.out.println(">> Reinicio diario detectado. Reiniciando número de orden a 0.");
             orderNum = 0;

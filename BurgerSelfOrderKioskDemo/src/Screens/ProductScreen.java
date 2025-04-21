@@ -83,7 +83,8 @@ public class ProductScreen implements KioskScreen{
     private void displayProduct(SimpleKiosk kiosk, IndividualProduct indProduct, TranslatorManager translator) {
         kiosk.setImage(indProduct.getImageFileName()); // Establecer la imagen del producto
         kiosk.setDescription(
-                translator.translate(indProduct.getDescription()) // Establecer la descripción traducida del producto
+                translator.translate(indProduct.getDescription()+
+                        "\n" + indProduct.getPrice()/ 100.0f +"€") // Establecer la descripción traducida del producto
                             );
     }
 }

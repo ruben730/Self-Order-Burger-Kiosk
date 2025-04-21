@@ -26,15 +26,6 @@ public class Order {
         return this.products;
     }
 
-    public int getProductCount(Product product) { //devuelve una cantidad específica de productos de un tipo
-        int count = 0;
-        for (Product p : products) {
-            if (p.getName().equals(product.getName())) {
-                count++;
-            }
-        }
-        return count;
-    }
     public String getOrderTextForConsumerTicket(TranslatorManager translator) {
         StringBuilder sb = new StringBuilder(); // Crea un StringBuilder para construir el texto
         // Itera sobre los productos y añade sus nombres traducidos al StringBuilder
@@ -54,8 +45,11 @@ public class Order {
     public int getOrderNumber() {return this.orderNumber;}
 
     public void addProduct(Product product) {
-        //this.totalAmount += product.getPrice(); //va sumando el precio.
         this.products.add(product); // Añade el producto a la lista
+    }
+
+    public void addMenu(Menu menu) {
+        this.products.add(menu); // Añade el menu a la lista
     }
 
     public int getTotalAmount() {

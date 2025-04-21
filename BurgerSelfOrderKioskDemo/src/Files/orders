@@ -15,3 +15,21 @@ Número de pedido: 2
 -  ANGUS  x1
          TOTAL 20.0€
 ======== FIN PEDIDO ========
+========== PEDIDO =========
+Número de pedido: 2
+-----------------------------
+            PEDIDO
+-----------------------------
+-  FANTA  x1
+-  ENSALADA  x1
+-  POLLO  x1
+         TOTAL 21.5€
+======== FIN PEDIDO ========
+========== PEDIDO =========
+Número de pedido: 3
+-----------------------------
+            PEDIDO
+-----------------------------
+-  Menu  x1
+         TOTAL 38.3€
+======== FIN PEDIDO ========

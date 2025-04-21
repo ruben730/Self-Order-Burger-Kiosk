@@ -11,19 +11,22 @@ import java.util.List;
  * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
  */
 public class Menu implements Product {
-    
     // Atributos de la clase Menu
+
     private int discount; // Porcentaje de descuento aplicado al precio total del menú
     private List<IndividualProduct> products; // Lista de productos individuales incluidos en el menú
+    private int final_price; //precio final
 
-    public Menu(List<IndividualProduct> products, int discount) {
+    public Menu(List<IndividualProduct> products, int final_price) {
         this.products = products; // Asigna la lista de productos al atributo products
-        this.discount = discount; // Asigna el porcentaje de descuento al atributo discount
+        this.final_price = final_price; // Asigna el precio final al menu
     }
 
     public void setDiscount(int discount) {
         this.discount = discount; // Actualiza el valor del atributo discount
     }
+
+    public void setPrice(int final_price){ this.final_price = final_price;}
 
     public int getPrice() {
         // Calcula el precio total de los productos sumando sus precios individuales
@@ -38,10 +41,6 @@ public class Menu implements Product {
 
     public IndividualProduct getProduct(int index) {
         return products.get(index); // Devuelve el producto en el índice especificado
-    }
-
-    public int getNumberOfProducts() {
-        return products.size(); // Devuelve el tamaño de la lista de productos
     }
 }
 

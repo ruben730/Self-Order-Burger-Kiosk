@@ -13,3 +13,19 @@ Número de pedido: 2
 -----------------------------
 -  ANGUS  x1
 ======== FIN COMANDA ========
+========== COMANDA =========
+Número de pedido: 2
+-----------------------------
+            PEDIDO
+-----------------------------
+-  FANTA  x1
+-  ENSALADA  x1
+-  POLLO  x1
+======== FIN COMANDA ========
+========== COMANDA =========
+Número de pedido: 3
+-----------------------------
+            PEDIDO
+-----------------------------
+-  Menu  x1
+======== FIN COMANDA ========

@@ -25,10 +25,6 @@ public class MenuCard implements Serializable {
 
     public MenuCardSection getSection(int index) {return this.sectionList.get(index);}
 
-    public List<MenuCardSection> getSectionList() {return this.sectionList;}
-
-    public int getNumberOfSections() {return sectionList.size();}
-
     /**
      * Método estático para cargar un objeto MenuCard desde un archivo XML.
      *

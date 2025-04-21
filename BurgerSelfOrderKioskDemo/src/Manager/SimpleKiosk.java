@@ -32,15 +32,15 @@ public class SimpleKiosk {
         return kiosk.waitEvent(60); // Espera 60 segundos por un evento de botón
     }
 
+    public void wain1second(){kiosk.waitEvent(1);}
+
     //al llegar a pantalla de pago exitoso (recoja su ticket)
     // volvemos a wellcome para otro consumidor
-    public char timeToRefreshKiosk(){return kiosk.waitEvent(7);}
+    public void timeToRefreshKiosk(){kiosk.waitEvent(7);}
 
     // Método que espera que el usuario introduzca una tarjeta en el kiosco, con un tiempo
     // máximo de espera de 60 segundos
-    public char waitToInCard(){
-        return kiosk.waitEvent(60); // Espera 60 segundos por el evento de tarjeta
-    }
+    public void waitToInCard(){kiosk.waitEvent(60);}
 
     public void setOption(char character, String option){kiosk.setOption(character, option);}
 
@@ -75,7 +75,5 @@ public class SimpleKiosk {
         kiosk.getCardNumber(); // Obtiene el número de la tarjeta desde el kiosco
         return 0;              // Retorna 0 como valor predeterminado
     }
-    public void getMessageMode(){}
- 
 }//End.
 

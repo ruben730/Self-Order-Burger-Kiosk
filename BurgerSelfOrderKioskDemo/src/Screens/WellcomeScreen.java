@@ -25,7 +25,6 @@ public class WellcomeScreen implements KioskScreen {
 
     @Override
     public KioskScreen show(Context context) {
-        System.out.println("Hi! Developer");
         SimpleKiosk sk = context.getKiosk(); // Obtenemos el kiosco creado en el contexto
         sk.clearScreen(); // Limpiamos la pantalla del kiosco
         configureScreenButtons(context); // Configuramos los botones en la pantalla

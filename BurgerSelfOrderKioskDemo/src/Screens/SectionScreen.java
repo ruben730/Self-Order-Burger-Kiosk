@@ -15,6 +15,7 @@ import Manager.TranslatorManager;
 public class SectionScreen implements KioskScreen {
     //CLASE PERFECTA
     private static final String MEAL_IMG_PATH = "BurgerSelfOrderKioskDemo/src/Images/comida.png";
+
     @Override
     public KioskScreen show(Context context) {
        SimpleKiosk sk = context.getKiosk(); // Obtenemos el kiosco creado por el context
@@ -27,7 +28,7 @@ public class SectionScreen implements KioskScreen {
         }
 
        // El método waitPressButton espera a que el usuario pulse uno de los botones disponibles
-       char event = sk.waitPressButton(); // Método waitPressButton() dentro de SimpleKiosk que espera una entrada del usuario
+       char event = sk.waitPressButton();
 
         KioskScreen nextScreen = this; // Inicializamos la pantalla siguiente como la actual
 
