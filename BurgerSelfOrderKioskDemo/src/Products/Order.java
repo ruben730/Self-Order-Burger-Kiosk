@@ -1,5 +1,7 @@
 package Products;
 
+import Manager.TranslatorManager;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,14 +35,21 @@ public class Order {
         }
         return count;
     }
-
-    public String getOrderText() {
+    public String getOrderTextForConsumerTicket(TranslatorManager translator) {
         StringBuilder sb = new StringBuilder(); // Crea un StringBuilder para construir el texto
-        // Itera sobre los productos y añade sus nombres al StringBuilder
-        products.forEach(product -> sb.append(product.getName()).append(", "));
+        // Itera sobre los productos y añade sus nombres traducidos al StringBuilder
+        products.forEach(product -> sb.append(translator.translate(product.getName())).append(", "));
         // Elimina la última coma y espacio, si la lista de productos no está vacía
         return sb.length() > 0 ? sb.substring(0, sb.length() - 2) : "";
     }
+
+   public String getOrderText() { //este no traducia el ticket para el usuario. getOrderTextForConsumerTicket si lo hace.
+       StringBuilder sb = new StringBuilder(); // Crea un StringBuilder para construir el texto
+       // Itera sobre los productos y añade sus nombres al StringBuilder
+       products.forEach(product -> sb.append(product.getName()).append(", "));
+       // Elimina la última coma y espacio, si la lista de productos no está vacía
+       return sb.length() > 0 ? sb.substring(0, sb.length() - 2) : "";
+   }
 
     public int getOrderNumber() {return this.orderNumber;}
 

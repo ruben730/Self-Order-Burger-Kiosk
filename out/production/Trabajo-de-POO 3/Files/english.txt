@@ -68,6 +68,99 @@ Cancelar pedido
 Cancel order
 No olvide su tarjeta.
 Do not forget your card
+Agua mineral
+Mineral Water
+AGUA
+WATER
+ALITAS
+CHICKEN WINGS
+POLLO
+CHICKEN
+VEGETAL
+VEGETABLE
+BEBIDAS
+DRINKS
+COCA COLA NORMAL
+REGULAR COCA-COLA
+Coca Cola normal
+Regular Coca-Cola
+Coca Cola. Sin azúcar
+Coca Cola. Sugar-Free
+Coca Cola. Sin azúcar y sin cafeína
+Coca Cola. Sugar-Free and no Cafeine
+Fanta Naranja. Sin azúcares
+Fanta Orange. Sugar-free.
+CERVEZA
+BEER
+Cerveza Grande
+Large Beer
+Alitas de pollo, grandes y sabrosas, para los hambrientos amantes del buen pollo.
+Chicken wings, big and tasty, for the hungry lovers of good chicken.
+AROS DE CEBOLLA
+ONION RINGS
+Para compartir, redondos, sabrosos, crujientes y dorados
+Perfect for sharing, round, tasty, crispy, and golden.
+PATATAS_SUPREME
+SUPREME POTATOES
+Deliciosas Patatas Supreme con la nueva salsa Sour Cream.
+Delicious Supreme Potatoes with the new Sour Cream sauce.
+Hechos de pollo rebozado, acompañados de estas deliciosas salsas: BBQ, Deluxe, Buffalo y Agridulce.
+Made with breaded chicken, accompanied by these delicious sauces: BBQ, Deluxe, Buffalo, and Sweet & Sour.
+ENSALADA
+SALAD
+Ensalada de la Huerta con una mezcla de lechuga fresca y los mejores tomatitos cherry. Es el complemento ideal.
+Garden Salad with a mix of fresh lettuce and the best cherry tomatoes. It's the perfect complement.
+Postre delicioso de pastel de manzana caliente con un toque de canela, envuelto en hojaldre.
+Delicious dessert of warm apple pie with a touch of cinnamon, wrapped in puff pastry.
+SUNDAE CHOCOLATE
+CHOCOLATE SUNDAE
+Sundae de Chocolate Negro que combina nuestro helado con una rico sirope de chocolate negro.
+Dark Chocolate Sundae that combines our ice cream with a rich dark chocolate syrup.
+PIÑA
+PINEAPPLE
+Deliciosa piña muy refrescante para consumir en cualquier momento del día
+Delicious and refreshing pineapple, perfect to enjoy at any time of the day.
+Este delicioso postre combina nuestro helado con crujientes trozos de las clásicas galletas Oreo.
+This delicious dessert combines our ice cream with crispy pieces of classic Oreo cookies.
+PATATAS FRITAS
+FRIE CHIPS
+Las mejores, las más crujientes, las que tienen más sabor.
+The best, the crispiest, the ones with the most flavor.
+NUGGETS_VEGETALES
+VEGETABLE NUGGETS
+Crujientes, dorados, deliciosos. Los nuggets de toda la vida, con todo su sabor, pero hechos con plantas.
+Crispy, golden, delicious. The classic nuggets, with all their flavor, but made with plants.
+Carne de black angus de 160 g Pan de hamburguesa 'BBQ BOURBON'
+160g of Black Angus beef Hamburger bun 'BBQ BOURBON'
+Carnes de res rubia Gallega de 160 g Panes de hamburguesa 'CRISTAL CROCAN'
+160g of Blonde Galician beef 'CRISTAL CROCAN' hamburger buns
+Chicken supercrujiente. Pan brioche, salsa césar coreana
+Super crispy chicken. Brioche bun, Korean Caesar sauce.
+Hecho a base de plantas. Pan brioche, salsa césar coreana
+Plant-based patty. Brioche bun, Korean Caesar sauce.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -27,7 +27,7 @@ public class PurshaseScreen implements KioskScreen {
         UrjcBankServer bank = new UrjcBankServer(); // Servidor del banco para procesar pagos
 
         // Obtenemos los datos de la orden
-        String orderToTxt = order.getOrderText(); // Obtener el texto de la orden
+        String orderTextForConsumerTicket = order.getOrderTextForConsumerTicket(translator); //en el idioma
         int totalToPay = order.getTotalAmount(); // Obtener el total a pagar en céntimos
         float totalToPayFloat = totalToPay / 100.0f; // Convertir el total a euros
 
@@ -36,7 +36,7 @@ public class PurshaseScreen implements KioskScreen {
         configureScreenButtons(kiosk, context); // Configura los botones de la pantalla
 
         // Mostramos la descripción inicial
-        kiosk.setDescription(orderToTxt + "\n" + translator.translate("Total") +": " + totalToPayFloat + " € \n" + translator.translate("Introduce la tarjeta de crédito"));
+        kiosk.setDescription(orderTextForConsumerTicket + "\n" + translator.translate("Total") +": " + totalToPayFloat + " € \n" + translator.translate("Introduce la tarjeta de crédito"));
 
         char event = kiosk.waitPressButton();
 
@@ -66,9 +66,9 @@ public class PurshaseScreen implements KioskScreen {
                         ticket.add("URJC BURGUER");
                         ticket.add("Nº"+ translator.translate("Pedido")+" "+ newOrderNum);
                         ticket.add("=====================");
-                        ticket.add(orderToTxt);
+                        ticket.add(orderTextForConsumerTicket); //el ticket debe ir en el idioma del consumidor
                         ticket.add("=====================");
-                        ticket.add(+totalToPayFloat + " €");
+                        ticket.add(totalToPayFloat + " €");
                         kiosk.print(ticket);
 
                         kiosk.clearScreen();
@@ -154,7 +154,7 @@ public class PurshaseScreen implements KioskScreen {
             for (Map.Entry<Product, Integer> entry : productQuantityMap.entrySet()) {
                 Product product = entry.getKey();
                 int totalQuantity = entry.getValue();
-                bw.write("-  " + product.getName() + "  x" + totalQuantity);
+                bw.write("-  " + product.getName() + "  x" + totalQuantity); //-Alitas x9
                 bw.newLine();
             }
             bw.write("======== FIN COMANDA ========");
@@ -196,7 +196,7 @@ public class PurshaseScreen implements KioskScreen {
             for (Map.Entry<Product, Integer> entry : productQuantityMap.entrySet()) {
                 Product product = entry.getKey();
                 int totalQuantity = entry.getValue();
-                bw.write("-  " + product.getName() + "  x" + totalQuantity);
+                bw.write("-  " + product.getName() + "  x" + totalQuantity); //-Alitas x4
                 bw.newLine();
             }
             int totalToPay = order.getTotalAmount();

@@ -1,1 +1,108 @@
-
+========== COMANDA =========
+Número de pedido: 1
+-----------------------------
+            PEDIDO
+-----------------------------
+-  GALLEGA  x1
+-  NUGGETS  x1
+======== FIN COMANDA ========
+========== COMANDA =========
+Número de pedido: 2
+-----------------------------
+            PEDIDO
+-----------------------------
+-  ANGUS  x1
+======== FIN COMANDA ========
+========== COMANDA =========
+Número de pedido: 1
+-----------------------------
+            PEDIDO
+-----------------------------
+-  ALITAS  x1
+======== FIN COMANDA ========
+========== COMANDA =========
+Número de pedido: 2
+-----------------------------
+            PEDIDO
+-----------------------------
+-  AGUA  x1
+-  ALITAS  x2
+======== FIN COMANDA ========
+========== COMANDA =========
+Número de pedido: 3
+-----------------------------
+            PEDIDO
+-----------------------------
+-  FANTA  x1
+-  COCA COLA NORMAL  x1
+-  PATATAS_SUPREME  x1
+-  AROS DE CEBOLLA  x1
+-  ALITAS  x2
+-  SUNDAE CHOCOLATE  x1
+-  COCA COLA ZERO ZERO  x1
+-  PIÑA  x1
+-  ENSALADA  x1
+-  COCA COLA ZERO  x3
+-  PATATAS FRITAS  x1
+-  APPLE PIE  x1
+-  NUGGETS  x1
+-  AGUA  x1
+-  OREO  x1
+-  CERVEZA  x1
+-  NUGGETS_VEGETALES  x1
+======== FIN COMANDA ========
+========== COMANDA =========
+Número de pedido: 4
+-----------------------------
+            PEDIDO
+-----------------------------
+-  SUNDAE CHOCOLATE  x1
+-  CERVEZA  x1
+-  ANGUS  x1
+======== FIN COMANDA ========
+========== COMANDA =========
+Número de pedido: 5
+-----------------------------
+            PEDIDO
+-----------------------------
+-  AROS DE CEBOLLA  x2
+-  GALLEGA  x1
+======== FIN COMANDA ========
+========== COMANDA =========
+Número de pedido: 6
+-----------------------------
+            PEDIDO
+-----------------------------
+-  ENSALADA  x1
+-  AROS DE CEBOLLA  x1
+-  POLLO  x1
+-  COCA COLA NORMAL  x2
+======== FIN COMANDA ========
+========== COMANDA =========
+Número de pedido: 7
+-----------------------------
+            PEDIDO
+-----------------------------
+-  NUGGETS  x2
+-  ALITAS  x2
+-  COCA COLA ZERO ZERO  x1
+-  POLLO  x4
+-  AGUA  x1
+======== FIN COMANDA ========
+========== COMANDA =========
+Número de pedido: 8
+-----------------------------
+            PEDIDO
+-----------------------------
+-  PATATAS FRITAS  x2
+-  GALLEGA  x2
+-  POLLO  x2
+-  COCA COLA ZERO  x2
+======== FIN COMANDA ========
+========== COMANDA =========
+Número de pedido: 9
+-----------------------------
+            PEDIDO
+-----------------------------
+-  ALITAS  x2
+======== FIN COMANDA ========

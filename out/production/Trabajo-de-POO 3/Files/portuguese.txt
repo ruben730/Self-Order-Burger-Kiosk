@@ -4,11 +4,11 @@ Dispuestos a hacer la mejor hamburguesa del mundo
 Prontos para fazer o melhor hambúrguer do mundo
 Selecciona un idioma
 Selecione um idioma
-Ingles
+Inglés
 Inglês
 Español
 Espanhol
-Portugues
+Portugués
 Português
 Nuevo pedido
 Novo pedido
@@ -39,7 +39,7 @@ Adicionar Produto
 Producto Guardado
 Produto salvo
 Introduce la tarjeta de crédito
-Insira o cartão de crédito
+Digite o cartão de crédito
 Total
 Total
 Bebidas
@@ -55,17 +55,86 @@ Número do pedido
 Error en el pago
 Erro no pagamento
 Recoja su ticket abajo
-Pegue seu ticket abaixo
+Retire seu ticket abaixo
 Modificar Pedido
 Modificar Pedido
 Cancelar Pago
 Cancelar Pagamento
-Error al intentar comunicarse con su banco
-Erro ao tentar se comunicar com o seu banco
+Error al intentar comunicarse con su banco.
+Erro ao tentar se comunicar com seu banco
 Contacte con el personal.
-Entre em contato com a equipe.
+Contacte a equipe.
 Cancelar pedido
 Cancelar pedido
 No olvide su tarjeta.
-Não se esqueça do seu cartão.
-
+Não se esqueça do seu cartão
+Agua mineral
+Água mineral
+AGUA
+ÁGUA
+POLLO
+FRANGO
+ALITAS
+ASAS DE FRANGO
+VEGETAL
+VEGETAL
+BEBIDAS
+BEBIDAS
+COCA COLA NORMAL
+COCA COLA NORMAL
+Coca Cola normal
+Coca Cola normal
+Coca Cola. Sin azúcar
+Coca Cola. Sem açúcar
+Coca Cola. Sin azúcar y sin cafeína
+Coca Cola. Sem açúcar e sem cafeína
+Fanta Naranja. Sin azúcares
+Fanta Laranja. Sem açúcar
+CERVEZA
+CERVEJA
+Cerveza Grande
+Cerveja Grande
+Alitas de pollo, grandes y sabrosas, para los hambrientos amantes del buen pollo.
+Asas de frango, grandes e saborosas, para os famintos amantes de um bom frango.
+AROS DE CEBOLLA
+ANÉIS DE CEBOLA
+Para compartir, redondos, sabrosos, crujientes y dorados
+Perfeito para compartilhar, redondos, saborosos, crocantes e dourados
+PATATAS_SUPREME
+BATATAS SUPREME
+Deliciosas Patatas Supreme con la nueva salsa Sour Cream.
+Deliciosas Batatas Supreme com o novo molho Sour Cream.
+Hechos de pollo rebozado, acompañados de estas deliciosas salsas: BBQ, Deluxe, Buffalo y Agridulce.
+Feitos de frango empanado, acompanhados destas deliciosas molhos: BBQ, Deluxe, Buffalo e Agridoce.
+ENSALADA
+SALADA
+Ensalada de la Huerta con una mezcla de lechuga fresca y los mejores tomatitos cherry. Es el complemento ideal.
+Salada de hortas com uma mistura de alface fresca e os melhores tomatinhos cherry. É o complemento ideal.
+Postre delicioso de pastel de manzana caliente con un toque de canela, envuelto en hojaldre.
+Delicioso sobremesa de torta de maçã quente com um toque de canela, envolto em massa folhada.
+SUNDAE CHOCOLATE
+SUNDAE DE CHOCOLATE
+Sundae de Chocolate Negro que combina nuestro helado con una rico sirope de chocolate negro.
+Sundae de Chocolate Amargo que combina nosso sorvete com um rico xarope de chocolate amargo.
+PIÑA
+ABACAXI
+Deliciosa piña muy refrescante para consumir en cualquier momento del día
+Deliciosa e refrescante abacaxi, perfeita para consumir a qualquer hora do dia
+Este delicioso postre combina nuestro helado con crujientes trozos de las clásicas galletas Oreo.
+Esta deliciosa sobremesa combina nosso sorvete com crocantes pedaços das clássicas bolachas Oreo.
+PATATAS FRITAS
+BATATAS FRITAS
+Las mejores, las más crujientes, las que tienen más sabor.
+As melhores, as mais crocantes, as que têm mais sabor.
+NUGGETS_VEGETALES
+NUGGETS VEGETAIS
+Crujientes, dorados, deliciosos. Los nuggets de toda la vida, con todo su sabor, pero hechos con plantas.
+Crocantes, dourados, deliciosos. Os nuggets de sempre, com todo o seu sabor, mas feitos com plantas.
+Carne de black angus de 160 g Pan de hamburguesa 'BBQ BOURBON'
+Carne de black angus de 160 g Pão de hambúrguer 'BBQ BOURBON'
+Carnes de res rubia Gallega de 160 g Panes de hamburguesa 'CRISTAL CROCAN'
+Carne de vaca Gallega loira de 160 g Pães de hambúrguer 'CRISTAL CROCAN'
+Chicken supercrujiente. Pan brioche, salsa césar coreana
+Frango supercrocrante. Pão brioche, molho césar coreano
+Hecho a base de plantas. Pan brioche, salsa césar coreana
+Feito à base de plantas. Pão brioche, molho césar coreano

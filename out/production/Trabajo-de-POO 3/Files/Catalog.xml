@@ -10,8 +10,7 @@
       <void method="add">
        <object class="Products.IndividualProduct">
         <string>ANGUS</string>
-        <string>Carne de black angus de 160 g
-Pan de hamburguesa &apos;BBQ BOURBON&apos;</string>
+        <string>Carne de black angus de 160 g Pan de hamburguesa &apos;BBQ BOURBON&apos;</string>
         <string>BurgerSelfOrderKioskDemo/src/Images/ANGUS.png</string>
         <int>2000</int>
        </object>
@@ -19,8 +18,7 @@ Pan de hamburguesa &apos;BBQ BOURBON&apos;</string>
       <void method="add">
        <object class="Products.IndividualProduct">
         <string>GALLEGA</string>
-        <string>Carnes de res rubia Gallega de 160 g
-Panes de hamburguesa &apos;CRISTAL CROCAN&apos;</string>
+        <string>Carnes de res rubia Gallega de 160 g Panes de hamburguesa &apos;CRISTAL CROCAN&apos;</string>
         <string>BurgerSelfOrderKioskDemo/src/Images/GALLEGA.png</string>
         <int>1800</int>
        </object>
@@ -28,8 +26,7 @@ Panes de hamburguesa &apos;CRISTAL CROCAN&apos;</string>
       <void method="add">
        <object class="Products.IndividualProduct">
         <string>POLLO</string>
-        <string>Chicken supercrujiente.
-Pan brioche, salsa césar coreana</string>
+        <string>Chicken supercrujiente. Pan brioche, salsa césar coreana</string>
         <string>BurgerSelfOrderKioskDemo/src/Images/POLLO.png</string>
         <int>1500</int>
        </object>
@@ -37,8 +34,7 @@ Pan brioche, salsa césar coreana</string>
       <void method="add">
        <object class="Products.IndividualProduct">
         <string>VEGETAL</string>
-        <string>Hecho a base de plantas.
-Pan brioche, salsa césar coreana</string>
+        <string>Hecho a base de plantas. Pan brioche, salsa césar coreana</string>
         <string>BurgerSelfOrderKioskDemo/src/Images/VEGETAL.png</string>
         <int>1000</int>
        </object>

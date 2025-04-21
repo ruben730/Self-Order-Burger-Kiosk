@@ -41,7 +41,7 @@ public class ProductScreen implements KioskScreen{
         kiosk.setOption('G', "<"); // Producto anterior
 
          // Mostrar el primer producto
-        displayProduct(kiosk, carrousel.getCurrentProduct()); // Mostrar el primer producto en el carrusel
+        displayProduct(kiosk, carrousel.getCurrentProduct(), context.getTranslator()); // Mostrar el primer producto en el carrusel
         KioskScreen nextScreen = this; // Inicializa la siguiente pantalla a la actual
 
         // Navegar entre los productos
@@ -51,19 +51,19 @@ public class ProductScreen implements KioskScreen{
             switch (event) {
                 case 'H': // Siguiente producto. Funciona Perfecto
                     carrousel.next(); // Mover al siguiente producto
-                    displayProduct(kiosk, carrousel.getCurrentProduct()); // Actualizar la pantalla con el siguiente producto
+                    displayProduct(kiosk, carrousel.getCurrentProduct(), context.getTranslator()); // Actualizar la pantalla con el siguiente producto
                     break;
                 case 'G': // Producto anterior. Funciona Perfecto
                     carrousel.previous(); // Mover al producto anterior
-                    displayProduct(kiosk, carrousel.getCurrentProduct()); // Actualizar la pantalla con el producto anterior
+                    displayProduct(kiosk, carrousel.getCurrentProduct(), context.getTranslator()); // Actualizar la pantalla con el producto anterior
                     break;
                 case 'D': // Seleccionar el producto
-                    kiosk.setDescription(translator.translate("Producto Guardado")+": "+ carrousel.getCurrentProduct().getName());
+                    kiosk.setDescription(translator.translate("Producto Guardado")+": "+ translator.translate(carrousel.getCurrentProduct().getName()));
                     order.addProduct(carrousel.getCurrentProduct()); //Esto añade productos a la lista
                     break;
                 case 'C': //Ejercicio del examen
-                    displayProduct(kiosk, carrousel.getCurrentProduct());
-                    kiosk.setDescription("+1: "+ carrousel.getCurrentProduct().getName());
+                    displayProduct(kiosk, carrousel.getCurrentProduct(), context.getTranslator());
+                    kiosk.setDescription("+1: "+ translator.translate(carrousel.getCurrentProduct().getName()));
                     order.addProduct(carrousel.getCurrentProduct()); //Esto añade productos a la lista
                     break;
                 case 'E': // Cancelar
@@ -80,8 +80,10 @@ public class ProductScreen implements KioskScreen{
     }
 
     // Método para mostrar un producto en la pantalla
-    private void displayProduct(SimpleKiosk kiosk, IndividualProduct indProduct) {
+    private void displayProduct(SimpleKiosk kiosk, IndividualProduct indProduct, TranslatorManager translator) {
         kiosk.setImage(indProduct.getImageFileName()); // Establecer la imagen del producto
-        kiosk.setDescription(indProduct.getDescription()); // Establecer la descripción del producto
+        kiosk.setDescription(
+                translator.translate(indProduct.getDescription()) // Establecer la descripción traducida del producto
+                            );
     }
 }

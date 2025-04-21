@@ -11,7 +11,7 @@ Espanyol
 Portugues
 Portuguès
 Nuevo pedido
-Nou pedido
+Nou comanda
 Cambiar idioma
 Canviar idioma
 ¿Qué quieres hacer?
@@ -31,7 +31,7 @@ Comanda
 Volver
 Tornar
 Selecciona la hamburguesa del menú
-Selecciona l’hamburguesa del menú
+Selecciona l'hamburguesa del menú
 Productos
 Productes
 Añadir Producto
@@ -43,7 +43,7 @@ Introdueix la targeta de crèdit
 Total
 Total
 Bebidas
-Begudes
+Bebides
 Complementos
 Complementos
 Hamburguesas
@@ -51,26 +51,91 @@ Hamburgueses
 Pago realizado con éxito
 Pagament realitzat amb èxit
 Número de pedido
-Número de la comanda
+Número de comanda
 Error en el pago
 Error en el pagament
 Recoja su ticket abajo
-Recull el teu tiquet a sota
+Reculli el seu tiquet a sota
 Modificar Pedido
 Modificar Comanda
 Cancelar Pago
 Cancelar Pagament
-Error al intentar comunicarse con su banco
-Error en intentar comunicar-se amb el seu banc
+Error al intentar comunicarse con su banco.
+Error en intentar comunicar-se amb el seu banc.
 Contacte con el personal.
-Contacta amb el personal.
+Contacteu amb el personal.
 Cancelar pedido
-Cancel·lar comanda
+Cancelar comanda
 No olvide su tarjeta.
 No oblidi la seva targeta.
-
-
-
+Agua mineral
+Aigua mineral
+AGUA
+AIGUA
+ALITAS
+ALA DE POLLASTRE
+VEGETAL
+VEGETAL
+BEBIDAS
+BEBIDES
+COCA COLA NORMAL
+COCA COLA NORMAL
+Coca Cola normal
+Coca Cola normal
+Coca Cola. Sin azúcar
+Coca Cola. Sense sucre
+Coca Cola. Sin azúcar y sin cafeína
+Coca Cola. Sense sucre i sense cafeïna
+Fanta Naranja. Sin azúcares
+Fanta Taronja. Sense sucres
+CERVEZA
+CERVESA
+Cerveza Grande
+Cervesa Gran
+Alitas de pollo, grandes y sabrosas, para los hambrientos amantes del buen pollo.
+Ales de pollastre, grans i saboroses, per als amants del bon pollastre.
+AROS DE CEBOLLA
+ANELLES DE CEBALLA
+Para compartir, redondos, sabrosos, crujientes y dorados
+Perfecte per compartir, rodons, saborosos, cruixents i daurats
+PATATAS_SUPREME
+PATATES SUPREME
+Deliciosas Patatas Supreme con la nueva salsa Sour Cream.
+Delicioses Patates Supreme amb la nova salsa Sour Cream.
+Hechos de pollo rebozado, acompañados de estas deliciosas salsas: BBQ, Deluxe, Buffalo y Agridulce.
+Fets de pollastre arrebossat, acompanyats d'aquestes delicioses salses: BBQ, Deluxe, Buffalo i Agridoça.
+ENSALADA
+AMANIDA
+Ensalada de la Huerta con una mezcla de lechuga fresca y los mejores tomatitos cherry. Es el complemento ideal.
+Amanida de la Horta amb una mescla d'enciam fresc i els millors tomatets cherry. És el complement ideal.
+Postre delicioso de pastel de manzana caliente con un toque de canela, envuelto en hojaldre.
+Deliciós postre de pastís de poma calent amb un toc de canyella, embolicat amb pasta de full.
+SUNDAE CHOCOLATE
+SUNDAE DE XOCOLATA
+Sundae de Chocolate Negro que combina nuestro helado con una rico sirope de chocolate negro.
+Sundae de Xocolata Negre que combina el nostre gelat amb un ric xarop de xocolata negra.
+PIÑA
+PINYA
+Deliciosa piña muy refrescante para consumir en cualquier momento del día
+Deliciosa pinya molt refrescant per consumir a qualsevol moment del dia.
+Este delicioso postre combina nuestro helado con crujientes trozos de las clásicas galletas Oreo.
+Aquest deliciós postre combina el nostre gelat amb crocants trossos de les clàssiques galetes Oreo.
+PATATAS FRITAS
+PATATES FRITES
+Las mejores, las más crujientes, las que tienen más sabor.
+Les millors, les més cruixents, les que tenen més sabor.
+NUGGETS_VEGETALES
+NUGGETS VEGETALS
+Crujientes, dorados, deliciosos. Los nuggets de toda la vida, con todo su sabor, pero hechos con plantas.
+Cruixents, daurats, deliciosos. Els nuggets de tota la vida, amb tot el seu sabor, però fets amb plantes.
+Carne de black angus de 160 g Pan de hamburguesa 'BBQ BOURBON'
+Carn de black angus de 160 g Pa de hamburguesa 'BBQ BOURBON'
+Carnes de res rubia Gallega de 160 g Panes de hamburguesa 'CRISTAL CROCAN'
+Carns de vedella gallega de 160 g Pans de hamburguesa 'CRISTAL CROCAN'
+Chicken supercrujiente. Pan brioche, salsa césar coreana
+Pollastre supercruixent. Pa brioche, salsa césar coreana
+Hecho a base de plantas. Pan brioche, salsa césar coreana
+Fet a base de plantes. Pa brioche, salsa césar coreana
 
 
 

@@ -5,6 +5,8 @@
 package Screens;
         
 import java.util.List;
+
+import Manager.TranslatorManager;
 import Products.IndividualProduct;
 
 /**
@@ -50,12 +52,6 @@ public class CarrouselScreen {
         // actualizamos los botones, habilitandolos o deshabilitandolos
         updateButtonState("H", isPreviousButtonEnabled); // boton H (anterior)
         updateButtonState("G", isNextButtonEnabled); // boton G (siguiente)
-    }
-
-    // metodo protegido para configurar los botones de la pantalla
-    protected void configureScreenButtons() {
-        // configuramos los botones segun el estado actual
-        adjustCarruselButtons(currentIndex, products.size());
     }
 
     // metodo para actualizar los botones segun su estado

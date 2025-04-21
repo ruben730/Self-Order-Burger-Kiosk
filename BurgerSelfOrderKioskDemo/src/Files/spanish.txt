@@ -60,11 +60,82 @@ Modificar Pedido
 Modificar Pedido
 Cancelar Pago
 Cancelar Pago
-Error al intentar comunicarse con su banco
-Error al intentar comunicarse con su banco
+Error al intentar comunicarse con su banco.
+Error al intentar comunicarse con su banco.
 Contacte con el personal.
 Contacte con el personal.
 Cancelar pedido
 Cancelar pedido
 No olvide su tarjeta.
 No olvide su tarjeta.
+Agua mineral
+Agua mineral
+AGUA
+AGUA
+ALITAS
+ALITAS
+POLLO
+POLLO
+VEGETAL
+VEGETAL
+BEBIDAS
+BEBIDAS
+COCA COLA NORMAL
+COCA COLA NORMAL
+Coca Cola normal
+Coca Cola normal
+Coca Cola. Sin azúcar
+Coca Cola. Sin azúcar
+Coca Cola. Sin azúcar y sin cafeína
+Coca Cola. Sin azúcar y sin cafeína
+Fanta Naranja. Sin azúcares
+Fanta Naranja. Sin azúcares
+CERVEZA
+CERVEZA
+Cerveza Grande
+Cerveza Grande
+Alitas de pollo, grandes y sabrosas, para los hambrientos amantes del buen pollo.
+Alitas de pollo, grandes y sabrosas, para los hambrientos amantes del buen pollo.
+AROS DE CEBOLLA
+AROS DE CEBOLLA
+Para compartir, redondos, sabrosos, crujientes y dorados
+Para compartir, redondos, sabrosos, crujientes y dorados
+PATATAS_SUPREME
+PATATAS SUPREME
+Deliciosas Patatas Supreme con la nueva salsa Sour Cream.
+Deliciosas Patatas Supreme con la nueva salsa Sour Cream.
+Hechos de pollo rebozado, acompañados de estas deliciosas salsas: BBQ, Deluxe, Buffalo y Agridulce.
+Hechos de pollo rebozado, acompañados de estas deliciosas salsas: BBQ, Deluxe, Buffalo y Agridulce.
+ENSALADA
+ENSALADA
+Ensalada de la Huerta con una mezcla de lechuga fresca y los mejores tomatitos cherry. Es el complemento ideal.
+Ensalada de la Huerta con una mezcla de lechuga fresca y los mejores tomatitos cherry. Es el complemento ideal.
+Postre delicioso de pastel de manzana caliente con un toque de canela, envuelto en hojaldre.
+Postre delicioso de pastel de manzana caliente con un toque de canela, envuelto en hojaldre.
+SUNDAE CHOCOLATE
+SUNDAE DE CHOCOLATE
+Sundae de Chocolate Negro que combina nuestro helado con una rico sirope de chocolate negro.
+Sundae de Chocolate Negro que combina nuestro helado con un rico sirope de chocolate negro.
+PIÑA
+PIÑA
+Deliciosa piña muy refrescante para consumir en cualquier momento del día
+Deliciosa piña muy refrescante para consumir en cualquier momento del día
+Este delicioso postre combina nuestro helado con crujientes trozos de las clásicas galletas Oreo.
+Este delicioso postre combina nuestro helado con crujientes trozos de las clásicas galletas Oreo.
+PATATAS FRITAS
+PATATAS FRITAS
+Las mejores, las más crujientes, las que tienen más sabor.
+Las mejores, las más crujientes, las que tienen más sabor.
+NUGGETS_VEGETALES
+NUGGETS VEGETALES
+Crujientes, dorados, deliciosos. Los nuggets de toda la vida, con todo su sabor, pero hechos con plantas.
+Crujientes, dorados, deliciosos. Los nuggets de toda la vida, con todo su sabor, pero hechos con plantas.
+Carne de black angus de 160 g Pan de hamburguesa 'BBQ BOURBON'
+Carne de black angus de 160 g Pan de hamburguesa 'BBQ BOURBON'
+Carnes de res rubia Gallega de 160 g Panes de hamburguesa 'CRISTAL CROCAN'
+Carnes de res rubia Gallega de 160 g Panes de hamburguesa 'CRISTAL CROCAN'
+Chicken supercrujiente. Pan brioche, salsa césar coreana
+Pollo supercrujiente. Pan brioche, salsa césar coreana
+Hecho a base de plantas. Pan brioche, salsa césar coreana
+Hecho a base de plantas. Pan brioche, salsa césar coreana
+
