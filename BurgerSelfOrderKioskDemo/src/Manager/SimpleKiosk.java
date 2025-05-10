@@ -1,16 +1,12 @@
 package Manager;
 
-import java.io.IOException;
 import sienens.BurgerSelfOrderKiosk;
 import java.util.*;
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */
+
 public class SimpleKiosk {
     
     private BurgerSelfOrderKiosk kiosk;    // Instancia del kiosco de autopedidos de hamburguesas
-    TranslatorManager translator;               // Gestor de traducciones para el kiosco
+    TranslatorManager translator;          // Gestor de traducciones para el kiosco
            
     public SimpleKiosk(TranslatorManager translatorManager){
         this.kiosk = new BurgerSelfOrderKiosk();     // Crea una nueva instancia del kiosco
@@ -34,12 +30,10 @@ public class SimpleKiosk {
 
     public void wain1second(){kiosk.waitEvent(1);}
 
-    //al llegar a pantalla de pago exitoso (recoja su ticket)
-    // volvemos a wellcome para otro consumidor
+    //Al llegar a pantalla de pago exitoso (recoja su ticket)
+    //volvemos a wellcome para otro consumidor
     public void timeToRefreshKiosk(){kiosk.waitEvent(7);}
 
-    // Método que espera que el usuario introduzca una tarjeta en el kiosco, con un tiempo
-    // máximo de espera de 60 segundos
     public void waitToInCard(){kiosk.waitEvent(60);}
 
     public void setOption(char character, String option){kiosk.setOption(character, option);}
@@ -57,11 +51,6 @@ public class SimpleKiosk {
     }
     public void retainCreditCard(boolean retain){kiosk.retainCreditCard(retain);}
 
-    public TranslatorManager getTranslatorManager() throws IOException{
-        TranslatorManager TranslatorManager = new TranslatorManager(); 
-        return TranslatorManager; // Retorna una nueva instancia del gestor de traducciones
-    }
-
     // Expulsa una tarjeta de crédito del kiosco utilizando un identificador de tarjeta
     public void expelCreditCard(int card){// Expulsa la tarjeta identificada por "card"
         kiosk.expelCreditCard(card);
@@ -75,5 +64,5 @@ public class SimpleKiosk {
         kiosk.getCardNumber(); // Obtiene el número de la tarjeta desde el kiosco
         return 0;              // Retorna 0 como valor predeterminado
     }
-}//End.
+}
 

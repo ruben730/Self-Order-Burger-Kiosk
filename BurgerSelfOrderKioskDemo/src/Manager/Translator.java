@@ -6,12 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Map;
 import java.util.HashMap;
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */
+
 public class Translator {
-    //CLASE PERFECTA
+
     private final Map <String, String> translations; // Diccionario que guarda las traducciones: clave (texto en español) y valor (texto traducido)
     private final String language; // Idioma de destino para la traducción de los textos
 

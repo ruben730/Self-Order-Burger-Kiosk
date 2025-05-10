@@ -7,10 +7,8 @@ import Manager.SimpleKiosk;
 import Manager.TranslatorManager;
 import Products.IndividualProduct;
 import Products.Order;
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */
+
+
 public class ProductScreen implements KioskScreen{
     
     private String section; // Para almacenar la sección seleccionada
@@ -28,6 +26,7 @@ public class ProductScreen implements KioskScreen{
         SimpleKiosk kiosk = context.getKiosk(); // Obtener el quiosco
         CarrouselScreen carrousel = new CarrouselScreen(products); // Crear un carrusel con los productos
         Order order = context.getOrder(); //obtenemos el order actual sin perder informacion
+
         // Configurar la pantalla
         kiosk.clearScreen(); // Limpiar la pantalla
         kiosk.setMenuMode(); // Establecer el modo de menú
@@ -40,7 +39,7 @@ public class ProductScreen implements KioskScreen{
         kiosk.setOption('H', ">"); // Siguiente producto
         kiosk.setOption('G', "<"); // Producto anterior
 
-         // Mostrar el primer producto
+        // Mostrar el primer producto
         displayProduct(kiosk, carrousel.getCurrentProduct(), context.getTranslator()); // Mostrar el primer producto en el carrusel
         KioskScreen nextScreen = this; // Inicializa la siguiente pantalla a la actual
 
@@ -49,24 +48,24 @@ public class ProductScreen implements KioskScreen{
         while (navigating) {
             char event = kiosk.waitPressButton(); // Espera la pulsación de un botón
             switch (event) {
-                case 'H': // Siguiente producto. Funciona Perfecto
+                case 'H': // Siguiente producto. >
                     carrousel.next(); // Mover al siguiente producto
                     displayProduct(kiosk, carrousel.getCurrentProduct(), context.getTranslator()); // Actualizar la pantalla con el siguiente producto
                     break;
-                case 'G': // Producto anterior. Funciona Perfecto
+                case 'G': // Producto anterior. <
                     carrousel.previous(); // Mover al producto anterior
                     displayProduct(kiosk, carrousel.getCurrentProduct(), context.getTranslator()); // Actualizar la pantalla con el producto anterior
                     break;
-                case 'D': // Seleccionar el producto
+                case 'D': // Seleccionar el producto.
                     kiosk.setDescription(translator.translate("Producto Guardado")+": "+ translator.translate(carrousel.getCurrentProduct().getName()));
                     order.addProduct(carrousel.getCurrentProduct()); //Esto añade productos a la lista
                     break;
-                case 'C': //Ejercicio del examen
+                case 'C': //Ejercicio del examen. +1
                     displayProduct(kiosk, carrousel.getCurrentProduct(), context.getTranslator());
                     kiosk.setDescription("+1: "+ translator.translate(carrousel.getCurrentProduct().getName()));
                     order.addProduct(carrousel.getCurrentProduct()); //Esto añade productos a la lista
                     break;
-                case 'E': // Cancelar
+                case 'E': // Cancelar = Volver a la pantalla anterior
                     nextScreen = (KioskScreen) new SectionScreen(); // Volver a la pantalla de sección
                     navigating = false; // Terminar la navegación
                     break;

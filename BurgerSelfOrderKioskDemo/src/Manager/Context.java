@@ -7,25 +7,21 @@ import Products.Order;
 import Products.MenuCard;
 
 /**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- * Clase Context: gestiona el contexto del sistema incluyendo la configuración del kiosco,
- * la traducción de textos, el menú, y los pedidos.
+ * Clase Context que gestiona el estado del kiosco y la traducción.
+ * Carga la configuración del kiosco y el número de pedido desde archivos.
  */
 public class Context {
 
-    // Atributos privados para gestionar el estado del contexto
+    private final String ORDER_FILE_PATH = "BurgerSelfOrderKioskDemo/src/Files/ActualOrder.txt";
+    private final String KIOSK_CONFIG_FILE_PATH = "BurgerSelfOrderKioskDemo/src/Files/KioskConfiguration.txt";
     private SimpleKiosk kiosk;
-    private TranslatorManager translator = new TranslatorManager();
+    private TranslatorManager translator;
     private Order order = new Order(5);
     private MenuCard menuCard;
     public int orderNumber;
     private int kioskNumber;
     private int numberOfKiosks;
-    private final String ORDER_FILE_PATH = "BurgerSelfOrderKioskDemo/src/Files/ActualOrder.txt";
-    private final String KIOSK_CONFIG_FILE_PATH = "BurgerSelfOrderKioskDemo/src/Files/KioskConfiguration.txt";
 
-    // Constructor
     public Context() throws IOException { //Context = Initialize
 
         this.translator = new TranslatorManager();
@@ -93,12 +89,9 @@ public class Context {
     public Order getOrder() {
         return order; // Devuelve el pedido actual
     }
-    public void setOrder(Order order) {this.order = order;}
 
     public MenuCard getMenuCard() {
         return menuCard; // Devuelve la carta de menú cargada
     }
-
-    public void resetOrder() {this.order = null; }
 }
 

@@ -10,10 +10,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.List;
 
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */
 public class MenuCard implements Serializable {
 
     private static final String CATALOG_FILE_PATH = "BurgerSelfOrderKioskDemo/src/Files/Catalog.xml";
@@ -26,12 +22,12 @@ public class MenuCard implements Serializable {
     public MenuCardSection getSection(int index) {return this.sectionList.get(index);}
 
     /**
-     * Método estático para cargar un objeto MenuCard desde un archivo XML.
-     *
+     * Método estático para cargar un objeto MenuCard desde Catalog.xml
      * @return El objeto MenuCard cargado desde el disco, o null si ocurre un error.
      */
     public static MenuCard loadFromDisk() {
         try {
+
             FileInputStream fileInputStream = new FileInputStream(CATALOG_FILE_PATH);
             XMLDecoder decoder = new XMLDecoder(fileInputStream);
 

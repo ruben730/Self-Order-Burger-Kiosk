@@ -3,12 +3,9 @@ package Manager;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */
+
 public class TranslatorManager {
-    //CLASE PERFECTA
+
     private String currentLanguage;  // Lenguaje que está activo en ese momento
     private final Map <String, Translator> languages; // Diccionario que asocia el nombre del idioma con su respectivo Translator
    

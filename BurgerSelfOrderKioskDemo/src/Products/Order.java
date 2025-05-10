@@ -5,11 +5,6 @@ import Manager.TranslatorManager;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */
-
 public class Order {
 
     private int orderNumber; // Número único que identifica la orden
@@ -22,6 +17,7 @@ public class Order {
         this.totalAmount = 0; //irá guardando el precio
     }
 
+    //Método importante. Se guardará una lista de los productos de todo tipo (bebidas, hamburguesas, etc.) del pedido.
     public List<Product> getProducts() { // Guarda los productos del pedido, es para facilitar operaciones
         return this.products;
     }

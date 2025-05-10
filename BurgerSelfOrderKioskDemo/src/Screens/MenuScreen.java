@@ -15,11 +15,9 @@ import Products.Order;
 import Products.Menu;
 import Products.Product;
 
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */
+
 public class MenuScreen implements KioskScreen {
+
     private final String section; // Para almacenar la sección seleccionada
     private final List<IndividualProduct> products; // Lista de productos de la sección
     private final int currentSectionIndex; // Índice de la sección actual (0: Hamburguesas, 1: Bebidas, 2: Complementos)
@@ -44,12 +42,12 @@ public class MenuScreen implements KioskScreen {
         configureScreenButtons(context); // Configura los botones en la pantalla
         displayProduct(kiosk, carrousel.getCurrentProduct(), translator); // Muestra el primer producto
 
-        // Navegar entre los productos
+        //Navegar entre los productos
         //boolean navigating = true; // Variable para controlar la navegación
         while (true) {
             char event = kiosk.waitPressButton(); // Espera la pulsación de un botón
             switch (event) {
-                case 'C':
+                case 'C': //aun no funciona
                     // Añadir producto actual al pedido
                     //order.addProduct(carrousel.getCurrentProduct());
                     menu_products.add(carrousel.getCurrentProduct()); //nos guardará los tres elementos del menu
@@ -136,4 +134,4 @@ public class MenuScreen implements KioskScreen {
                                 "\n" + indProduct.getPrice()/ 100.0f +"€")
         );
     }
-}// END.
+}

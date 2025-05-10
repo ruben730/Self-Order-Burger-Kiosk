@@ -4,7 +4,6 @@ import java.io.*;
 import Screens.WellcomeScreen;
 
 class KioskManager {
-    //CLASE PERFECTA
     private Context context;
 
     public void start() throws IOException {

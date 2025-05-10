@@ -6,12 +6,8 @@ package Products;
 
 import java.util.List;
 
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */
+
 public class Menu implements Product {
-    // Atributos de la clase Menu
 
     private int discount; // Porcentaje de descuento aplicado al precio total del menú
     private List<IndividualProduct> products; // Lista de productos individuales incluidos en el menú

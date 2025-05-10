@@ -1,11 +1,8 @@
 package Products;
 
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */
+
 public class IndividualProduct implements Product {
-    //CLASE PERFECTA
+
     private String name; // Nombre del producto
     private String description; // Descripción del producto
     private String imageFileName; // Nombre del archivo de imagen asociado al producto
@@ -26,7 +23,7 @@ public class IndividualProduct implements Product {
 
     /**
      * Constructor de la clase IndividualProduct.
-     * Inicializa los atributos del producto con los valores proporcionados.
+     * Inicializa los atributos de un producto con los valores proporcionados.
      * @param name Nombre del producto
      * @param description Descripción del producto
      * @param imageFileName Nombre del archivo de imagen del producto

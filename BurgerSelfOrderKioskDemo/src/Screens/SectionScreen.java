@@ -8,12 +8,9 @@ import Manager.SimpleKiosk;
 import Manager.KioskScreen;
 import Manager.TranslatorManager;
 
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */
+
 public class SectionScreen implements KioskScreen {
-    //CLASE PERFECTA
+
     private static final String MEAL_IMG_PATH = "BurgerSelfOrderKioskDemo/src/Images/comida.png";
 
     @Override
@@ -47,7 +44,7 @@ public class SectionScreen implements KioskScreen {
                 nextScreen = (KioskScreen) new ProductScreen("Hamburguesas", context.getMenuCard().getSection(0).getProducts());
                 break;
             case 'E':
-                nextScreen = new OrderScreen(); // Si se presiona 'E', volvemos a la pantalla de la orden
+                nextScreen = new OrderScreen(); // Si se presiona 'E', volvemos a la pantalla del pedido
                 break;
             default:
                 // Si no se presiona ninguna opción válida, la pantalla actual se mantiene
@@ -57,7 +54,7 @@ public class SectionScreen implements KioskScreen {
     }
 
     private void configureScreenButtons(Context context) throws IOException {
-        // Método que configura los botones en la pantalla del kiosco
+
         SimpleKiosk kiosk = context.getKiosk(); // Obtenemos el kiosco del contexto
         TranslatorManager translator = context.getTranslator(); // Obtenemos el traductor del contexto
         kiosk.clearScreen(); // Limpiamos la pantalla

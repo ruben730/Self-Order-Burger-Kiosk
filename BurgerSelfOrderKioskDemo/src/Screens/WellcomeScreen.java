@@ -1,11 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Screens;
 
-import java.io.*;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
@@ -13,35 +7,31 @@ import Manager.Context;
 import Manager.SimpleKiosk;
 import Manager.KioskScreen;
 import Manager.TranslatorManager;
-import Products.Order;
 
-/**
- *
- * @author Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */
+
 public class WellcomeScreen implements KioskScreen {
-    /**Logo Principal**/
+
     private static final String LOGO_PATH = "BurgerSelfOrderKioskDemo/src/Images/Logo.png";
 
     @Override
     public KioskScreen show(Context context) {
         SimpleKiosk sk = context.getKiosk(); // Obtenemos el kiosco creado en el contexto
-        sk.clearScreen(); // Limpiamos la pantalla del kiosco
-        configureScreenButtons(context); // Configuramos los botones en la pantalla
+        sk.clearScreen();                    // Limpiamos la pantalla del kiosco
+        configureScreenButtons(context);     // Configuramos los botones en la pantalla
 
         char event = sk.waitPressButton(); // Método waitPressButton() dentro de SimpleKiosk que espera una entrada del usuario
         
         KioskScreen nextScreen = this; // Inicializamos la pantalla siguiente como la actual
 
         if (event == 'B') {
-            nextScreen = new OrderScreen(); // Si se presiona 'B', pasamos a la pantalla de la orden
+            nextScreen = new OrderScreen(); //Hacer pedido
         } else if (event == 'C') {
-            nextScreen = new LanguajeScreen(); // Si se presiona 'C', pasamos a la pantalla de cambio de idioma
+            nextScreen = new LanguajeScreen(); //Cambiar de idioma
         }
         return nextScreen; // Retornamos la pantalla siguiente, que depende de la opción del usuario
     }
 
-    private void configureScreenButtons(Context context) { // Método para configurar los botones en la pantalla
+    private void configureScreenButtons(Context context) {
         TranslatorManager translator = context.getTranslator(); // Usamos el TranslatorManager del contexto
         SimpleKiosk kiosk = context.getKiosk(); // Obtenemos el kiosco del contexto
 

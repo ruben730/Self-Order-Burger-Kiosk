@@ -13,13 +13,11 @@ import java.util.Map;
 import javax.naming.CommunicationException;
 import Manager.TranslatorManager;
 import Products.Order;
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */ 
+
+
 public class PurshaseScreen implements KioskScreen {
-    //CLASE PERFECTA
-    @Override 
+
+    @Override
     public KioskScreen show(Context context) {
         SimpleKiosk kiosk = context.getKiosk();
         Order order = context.getOrder(); // Obtener la orden actual
@@ -27,7 +25,8 @@ public class PurshaseScreen implements KioskScreen {
         UrjcBankServer bank = new UrjcBankServer(); // Servidor del banco para procesar pagos
 
         // Obtenemos los datos del pedido
-        String orderTextForConsumerTicket = order.getOrderTextForConsumerTicket(translator); //en el idioma
+        String orderTextForConsumerTicket = order.getOrderTextForConsumerTicket(translator); //en el idioma del consumidor
+
         int totalToPay = order.getTotalAmount(); // Obtener el total a pagar en céntimos, ejem. 2000ct = 20€
         float totalToPayFloat = totalToPay / 100.0f; // Convertir el total a euros
 
@@ -35,7 +34,7 @@ public class PurshaseScreen implements KioskScreen {
 
         configureScreenButtons(kiosk, context); // Configura los botones de la pantalla
 
-        // Mostramos la descripción de la pantalla de pago
+        // Mostramos la descripción de la pantalla de pago. Total: 87.0€
         kiosk.setDescription(orderTextForConsumerTicket + "\n" + translator.translate("Total") +": " + totalToPayFloat + " € \n" + translator.translate("Introduce la tarjeta de crédito"));
 
         char event = kiosk.waitPressButton();
@@ -46,7 +45,8 @@ public class PurshaseScreen implements KioskScreen {
             case 'A', 'B' -> {
                 return new OrderScreen(); //en caso de cancelar pago o modificar pago se vuelve a order.
             }
-            case '1' -> { //1 igual a puerto donde se mete la tarjeta
+            case '1' -> { //1 igual a puerto donde se mete la tarjeta.
+
                 kiosk.retainCreditCard(false); // Retenemos la tarjeta
                 long creditCardNumber = kiosk.getCardNumber(); // Obtener el número de tarjeta
 
@@ -73,6 +73,7 @@ public class PurshaseScreen implements KioskScreen {
 
                         kiosk.clearScreen();
                         kiosk.setMessageMode();
+
                         //Mensaje de éxito
                         kiosk.setDescription(translator.translate("Pago realizado con éxito")+"!"
                                 +"\n"+translator.translate("Recoja su ticket abajo")
@@ -146,6 +147,7 @@ public class PurshaseScreen implements KioskScreen {
             bw.newLine();
             bw.write("-----------------------------");
             bw.newLine();
+
             // Usamos un Map para agrupar productos y sus cantidades
             Map<Product, Integer> productQuantityMap = new HashMap<>();
             // Contamos la cantidad de cada producto
@@ -162,6 +164,7 @@ public class PurshaseScreen implements KioskScreen {
             bw.write("======== FIN COMANDA ========");
             bw.newLine();
             bw.close();
+
         } catch (Exception e) {
             WellcomeScreen wellcomeScreen = new WellcomeScreen();
             //wellcomeScreen.show();
@@ -170,7 +173,7 @@ public class PurshaseScreen implements KioskScreen {
     }
     public void writeOrderToFile(Order order, int newOrderNum) {
         // Escribimos la orden en un archivo para cocina
-        String ORDERS_FILE_PATH = "BurgerSelfOrderKioskDemo/src/Files/orders";
+        String ORDERS_FILE_PATH = "BurgerSelfOrderKioskDemo/src/Files/Orders";
         try {
             File file = new File(ORDERS_FILE_PATH);
             if (!file.exists()) {
@@ -188,6 +191,7 @@ public class PurshaseScreen implements KioskScreen {
             bw.newLine();
             bw.write("-----------------------------");
             bw.newLine();
+
             // Usamos un Map para agrupar productos y sus cantidades
             Map<Product, Integer> productQuantityMap = new HashMap<>();
             // Contamos la cantidad de cada producto
@@ -208,6 +212,7 @@ public class PurshaseScreen implements KioskScreen {
             bw.write("======== FIN PEDIDO ========");
             bw.newLine();
             bw.close();
+
         } catch (Exception e) {
             WellcomeScreen wellcomeScreen = new WellcomeScreen();
             //wellcomeScreen.show();
@@ -215,6 +220,7 @@ public class PurshaseScreen implements KioskScreen {
         }
     }
     private int incrementOrderNum(){
+
         String ACTUAL_ORDER_PATH = "BurgerSelfOrderKioskDemo/src/Files/ActualOrder.txt";
 
         int orderNum;
@@ -231,6 +237,7 @@ public class PurshaseScreen implements KioskScreen {
 
             System.out.println("Número de pedido leído: " + orderNum);  //<- para que veas qué pinta por terminal
             System.out.println("Última fecha de reinicio leída: " + lastResetDate);  //<- para que veas qué pinta por terminal
+
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -243,6 +250,7 @@ public class PurshaseScreen implements KioskScreen {
 
         System.out.println("Hora actual: " + nowTime);
         System.out.println("Fecha actual: " + today);
+
         // Verificamos si ya pasaron las 6 AM y aún no se reinició hoy los números de pedido
         //A las 06:00 de todos los días ActualOrder se reinicia a 0.
         if (nowTime.isAfter(LocalTime.of(6, 0)) && !lastResetDate.equals(today)) {
@@ -266,4 +274,4 @@ public class PurshaseScreen implements KioskScreen {
         System.out.println("--------------------------------------------------");
         return orderNum;
     }
-}//End.
+}

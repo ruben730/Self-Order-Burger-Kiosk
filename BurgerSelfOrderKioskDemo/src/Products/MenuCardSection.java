@@ -1,13 +1,9 @@
 package Products;
 
 import java.util.List;
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */
+
 public class MenuCardSection {
 
-    // Atributos de la clase MenuCardSection
     private String sectionName; // Nombre de la sección del menú
     private String imageFileName; // Nombre del archivo de imagen asociado con la sección
     private List<IndividualProduct> productList; // Lista de productos dentro de la sección
@@ -22,7 +18,6 @@ public class MenuCardSection {
 
     public List<IndividualProduct> getProducts() {return this.productList;}
 
-    //public List<IndividualProduct> getProducts() {return this.productList;}
     public String getSectionName() {
         return this.sectionName; // Devuelve el nombre de la sección
     }

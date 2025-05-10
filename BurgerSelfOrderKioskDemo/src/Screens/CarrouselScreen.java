@@ -9,12 +9,9 @@ import java.util.List;
 import Manager.TranslatorManager;
 import Products.IndividualProduct;
 
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */                             
+
 public class CarrouselScreen { 
-    //CLASE PERFECTA
+
     private List<IndividualProduct> products;
     private int currentIndex; //Current Product
     

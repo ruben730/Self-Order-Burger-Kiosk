@@ -5,11 +5,9 @@ import Manager.SimpleKiosk;
 import Manager.KioskScreen;
 import Manager.TranslatorManager;
 
-/**
- *
- * @author  Victor Oliveira, Rubén Ruiz y Ariel Rodríguez
- */
+
 public class LanguajeScreen implements KioskScreen {
+
     private static final String LANGUAGE_IMG_PATH = "BurgerSelfOrderKioskDemo/src/Images/idiomas.png";
 
     @Override
@@ -50,6 +48,7 @@ public class LanguajeScreen implements KioskScreen {
      }
 
     private void configureScreenButtons(Context context) {
+
                 TranslatorManager translator = context.getTranslator();
                 SimpleKiosk kiosk = context.getKiosk();
                 
