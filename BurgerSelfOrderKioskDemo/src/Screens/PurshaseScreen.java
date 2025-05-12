@@ -30,10 +30,13 @@ public class PurshaseScreen implements KioskScreen {
         int totalToPay = order.getTotalAmount(); // Obtener el total a pagar en céntimos, ejem. 2000ct = 20€
         float totalToPayFloat = totalToPay / 100.0f; // Convertir el total a euros
 
+        System.out.println("===========PRODUCTS==========");//<-- Para que veas qué pinta por terminal
         for (Product product : order.getProducts()) {
             System.out.println("Producto: " + product.getName() + " - Precio: " + product.getPrice());
         }
-        System.out.println("Total to pay: " + totalToPayFloat); //<-- Para que veas qué pinta por terminal
+        System.out.println("==========PAYMENT===========");
+        System.out.println("Total to pay: " + totalToPayFloat);
+        System.out.println("=============================");
 
         configureScreenButtons(kiosk, context); // Configura los botones de la pantalla
 
@@ -232,6 +235,7 @@ public class PurshaseScreen implements KioskScreen {
         // Leer el número de orden y la fecha del último reinicio
         try (BufferedReader reader = new BufferedReader(new FileReader(ACTUAL_ORDER_PATH))) {
             String line = reader.readLine();
+            System.out.println("=======Numero Pedido=======");
             System.out.println("Contenido leído del archivo: " + line); //<- para que veas qué pinta por terminal
 
             String[] parts = line.split(",");
@@ -240,7 +244,7 @@ public class PurshaseScreen implements KioskScreen {
 
             System.out.println("Número de pedido leído: " + orderNum);  //<- para que veas qué pinta por terminal
             System.out.println("Última fecha de reinicio leída: " + lastResetDate);  //<- para que veas qué pinta por terminal
-
+            System.out.println("=============================");
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {
@@ -251,6 +255,7 @@ public class PurshaseScreen implements KioskScreen {
         LocalTime nowTime = LocalTime.now();
         LocalDate today = LocalDate.now();
 
+        System.out.println("=============================");
         System.out.println("Hora actual: " + nowTime);
         System.out.println("Fecha actual: " + today);
 
@@ -274,7 +279,7 @@ public class PurshaseScreen implements KioskScreen {
         }
 
         System.out.println("Número de pedido devuelto: " + orderNum);
-        System.out.println("--------------------------------------------------");
+        System.out.println("=============================");
         return orderNum;
     }
 }

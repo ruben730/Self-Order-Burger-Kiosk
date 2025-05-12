@@ -71,6 +71,10 @@ public class DeleteProductScreen implements KioskScreen {
                     kiosk.setDescription(translator.translate("Producto Eliminado") + ": " +
                             translator.translate(current.getName()));
 
+                    System.out.println("============DELET============"); //<-- Debug
+                    System.out.println("Has Borrado el producto: " + current.getName());
+                    System.out.println("=============================");
+
                     order.removeProduct(current);
 
                     List<IndividualProduct> nuevos = new ArrayList<>();

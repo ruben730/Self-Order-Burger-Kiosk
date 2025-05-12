@@ -100,10 +100,11 @@ public class MenuScreen implements KioskScreen {
                         menu.setMenuName(menu_name);
 
                         //Para que veas por terminal qué se guarda.
-                        System.out.println("=============================");
-                        System.out.println(menu_name);
-                        System.out.println(discount);
-                        System.out.println(final_price);
+                        System.out.println("===========MENU==============");
+                        System.out.println("NOMBRE-MENU: "+menu_name);
+                        System.out.println("Descuento: " + discount);
+                        System.out.println("Precio Original: " + menu_price_with_no_discount);
+                        System.out.println("Precio Final: " +final_price);
                         for (Product product : menu_products) {
                             System.out.println(product.getName());
                         }

@@ -42,12 +42,17 @@ public class CarrouselScreen {
         updateDescription(currentProduct.getDescription());
     }
 
+    //El único proposito de estos métodos es entender realmente lo que ocurre paso a paso
     private void updateImage(String imagePath) {
+        System.out.println("=============================");
         System.out.println("Actualizando imagen con: " + imagePath);
+        System.out.println("=============================");
     }
 
     private void updateDescription(String description) {
+        System.out.println("=============================");
         System.out.println("Actualizando descripcion: " + description);
+        System.out.println("=============================");
     }
 }
 
