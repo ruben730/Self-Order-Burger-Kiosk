@@ -41,6 +41,8 @@ public class MenuCard implements Serializable {
         }
         return null; // Devuelve null si ocurre un error
     }
+    public int getNumberOfSections() {return sectionList.size();}
+
 }
 
 

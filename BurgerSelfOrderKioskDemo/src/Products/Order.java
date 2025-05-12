@@ -3,6 +3,7 @@ package Products;
 import Manager.TranslatorManager;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class Order {
@@ -10,6 +11,7 @@ public class Order {
     private int orderNumber; // Número único que identifica la orden
     private List<Product> products; // Lista de productos incluidos en la orden
     private int totalAmount;
+    private List<Menu> menus = new ArrayList<>();
 
     public Order(int orderNumber) {
         this.orderNumber = orderNumber; // Asigna el número de la orden
@@ -48,9 +50,35 @@ public class Order {
         this.products.add(menu); // Añade el menu a la lista
     }
 
+    public List<Menu> getMenus() {return menus;}
+
     public int getTotalAmount() {
-        return this.products.stream().mapToInt(Product::getPrice).sum();
+        int totalAmount = 0;
+
+        // Iteramos sobre los productos del pedido
+        for (Product product : this.products) {
+            // Si el producto es un menú, sumamos su precio
+            if (product instanceof Menu) {
+                totalAmount += product.getPrice(); // Obtenemos el precio del menú
+            } else {
+                // Si es un producto individual, sumamos su precio
+                totalAmount += product.getPrice(); // Obtenemos el precio del producto
+            }
+        }
+        return totalAmount; // El total es en céntimos
     }
+
+    public void removeProduct(Product product) {
+        // Recorremos la lista por índices
+        for (int i = 0; i < this.products.size(); i++) {
+            // Comparamos por nombre (o por cualquier otra propiedad única)
+            if (this.products.get(i).getName().equals(product.getName())) {
+                this.products.remove(i);  // Eliminamos el producto por índice
+                break;                    // Salimos tras la primera coincidencia
+            }
+        }
+    }
+
 }
 
 

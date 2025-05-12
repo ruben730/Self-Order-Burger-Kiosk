@@ -7,8 +7,9 @@ import Products.Order;
 import Products.MenuCard;
 
 /**
- * Clase Context que gestiona el estado del kiosco y la traducción.
- * Carga la configuración del kiosco y el número de pedido desde archivos.
+ * La clase Context guarda la información del pedido durante TODO el programa.
+ * Se encarga de cargar la configuración del kiosco, el número de pedido y la carta de menús.
+ * También maneja el número de pedido actual, guardándolo en un archivo para que se mantenga entre sesiones.
  */
 public class Context {
 

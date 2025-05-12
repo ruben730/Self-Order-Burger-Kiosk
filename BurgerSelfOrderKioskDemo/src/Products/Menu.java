@@ -3,40 +3,51 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Products;
-
+import java.io.*;
 import java.util.List;
 
 
 public class Menu implements Product {
 
-    private int discount; // Porcentaje de descuento aplicado al precio total del menú
+    private String DISCOUNT_FILE_PATH = "BurgerSelfOrderKioskDemo/src/Files/Discounts.txt";
     private List<IndividualProduct> products; // Lista de productos individuales incluidos en el menú
     private int final_price; //precio final
+    private String menu_name; // Nombre del menú
 
-    public Menu(List<IndividualProduct> products, int final_price) {
-        this.products = products; // Asigna la lista de productos al atributo products
+    public Menu(List<IndividualProduct> products, int final_price, String menuName) {
+        this.products = products; // El menu es una lista de productos
+        this.menu_name = menuName;
         this.final_price = final_price; // Asigna el precio final al menu
-    }
-
-    public void setDiscount(int discount) {
-        this.discount = discount; // Actualiza el valor del atributo discount
     }
 
     public void setPrice(int final_price){ this.final_price = final_price;}
 
-    public int getPrice() {
-        // Calcula el precio total de los productos sumando sus precios individuales
-        int total = products.stream().mapToInt(IndividualProduct::getPrice).sum();
-        // Aplica el descuento y devuelve el precio final
-        return total - (total * discount / 100);
-    }
+    public int getPrice() {return this.final_price;}
+
+    public void setMenuName(String menuName) { this.menu_name = menuName; }
 
     public String getName() {
-        return "Menu"; // Devuelve un nombre genérico para el menú
+        return this.menu_name; // Devuelve un nombre genérico para el menú
     }
 
     public IndividualProduct getProduct(int index) {
         return products.get(index); // Devuelve el producto en el índice especificado
+    }
+
+    public int getMenuDiscount() {
+        int discount_readed;
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(DISCOUNT_FILE_PATH))) {
+            String line = reader.readLine();
+
+            discount_readed = Integer.parseInt(line.trim());
+
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return discount_readed;
     }
 }
 

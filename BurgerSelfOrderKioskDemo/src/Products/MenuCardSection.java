@@ -14,8 +14,6 @@ public class MenuCardSection {
         this.productList = products; // Asigna la lista de productos
     }
 
-    public IndividualProduct getProduct(int number) {return this.productList.get(number);}
-
     public List<IndividualProduct> getProducts() {return this.productList;}
 
     public String getSectionName() {

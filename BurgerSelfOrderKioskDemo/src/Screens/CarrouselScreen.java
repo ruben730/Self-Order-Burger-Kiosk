@@ -5,8 +5,6 @@
 package Screens;
         
 import java.util.List;
-
-import Manager.TranslatorManager;
 import Products.IndividualProduct;
 
 

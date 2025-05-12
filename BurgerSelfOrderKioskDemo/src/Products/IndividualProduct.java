@@ -8,9 +8,7 @@ public class IndividualProduct implements Product {
     private String imageFileName; // Nombre del archivo de imagen asociado al producto
     private int price; // Precio del producto en centavos o la unidad monetaria correspondiente
 
-    public int getPrice() {
-        return this.price;
-    }
+    public int getPrice() {return this.price;}
     public String getName() {
         return this.name;
     }

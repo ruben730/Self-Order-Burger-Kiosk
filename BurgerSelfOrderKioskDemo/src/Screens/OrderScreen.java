@@ -26,6 +26,8 @@ public class OrderScreen implements KioskScreen {
         Order order = context.getOrder(); //Obtenemos la informacion del pedido del usuario actual
         SimpleKiosk kiosk = context.getKiosk(); // Obtenemos el quiosco
 
+        List<IndividualProduct> menu_products = new ArrayList<>();
+
         // Espera que el usario pulse un botón
         char event = kiosk.waitPressButton();
 
@@ -37,12 +39,14 @@ public class OrderScreen implements KioskScreen {
                 break;
 
             case 'B': // Añadir menú. Mostramos hamburguesas primero.
-                nextScreen = (KioskScreen) new MenuScreen( "Hamburguesas" ,context.getMenuCard().getSection(0).getProducts(), 0);
+                nextScreen = (KioskScreen) new MenuScreen( "Hamburguesas" ,context.getMenuCard().getSection(0).getProducts(), 0, menu_products);
                 break;
 
-            case 'C':// Eliminar producto. Mostrar un carrousel de context.getOrder(). NO VA AÚN
+            case 'C':// Eliminar producto. Mostrar un carrousel de context.getOrder().
+                if (!order.getProducts().isEmpty()) { // si no está vacío
+                    nextScreen = new DeleteProductScreen(order.getProducts());
+                }
                 break;
-
             case 'D':
                 if (order.getProducts().isEmpty()){ //si no hay nada en pedido, al clickar simula no funcionar el botón
                     //en realidad se regenera esta misma pantalla
@@ -81,11 +85,6 @@ public class OrderScreen implements KioskScreen {
         kiosk.setOption('E', manager.translate("Cancelar pedido"));
     }
 
-    private void deleteProduct(Order order) {
-        for (Product product: order.getProducts()) {
-
-        }
-    }
 }
 
 

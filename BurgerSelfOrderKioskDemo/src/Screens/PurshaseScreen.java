@@ -30,6 +30,9 @@ public class PurshaseScreen implements KioskScreen {
         int totalToPay = order.getTotalAmount(); // Obtener el total a pagar en céntimos, ejem. 2000ct = 20€
         float totalToPayFloat = totalToPay / 100.0f; // Convertir el total a euros
 
+        for (Product product : order.getProducts()) {
+            System.out.println("Producto: " + product.getName() + " - Precio: " + product.getPrice());
+        }
         System.out.println("Total to pay: " + totalToPayFloat); //<-- Para que veas qué pinta por terminal
 
         configureScreenButtons(kiosk, context); // Configura los botones de la pantalla

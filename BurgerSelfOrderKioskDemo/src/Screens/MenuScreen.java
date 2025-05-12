@@ -21,14 +21,16 @@ public class MenuScreen implements KioskScreen {
     private final String section; // Para almacenar la sección seleccionada
     private final List<IndividualProduct> products; // Lista de productos de la sección
     private final int currentSectionIndex; // Índice de la sección actual (0: Hamburguesas, 1: Bebidas, 2: Complementos)
-    private List<Product> menu_products; // Lista de productos incluidos en la orden
+
+    //menu_products será una lista de paso para almacenar los productos seleccionados
+    private List<IndividualProduct> menu_products; // Lista de productos incluidos en la orden ACTUAL. Al final menú se debe borrar
 
     // Constructor que recibe la sección, la lista de productos y el índice de sección
-    public MenuScreen(String section, List<IndividualProduct> products, int sectionIndex) {
+    public MenuScreen(String section, List<IndividualProduct> products, int sectionIndex, List<IndividualProduct> menu_products) {
         this.section = section;
         this.products = products;
         this.currentSectionIndex = sectionIndex;
-        this.menu_products = new ArrayList<Product>();
+        this.menu_products = menu_products; // Inicializa la lista de productos del menú
     }
 
     public KioskScreen show(Context context) {
@@ -36,8 +38,13 @@ public class MenuScreen implements KioskScreen {
         CarrouselScreen carrousel = new CarrouselScreen(products);
         TranslatorManager translator = context.getTranslator();
         Order order = context.getOrder();
-        int discount = 0;
-        Menu menu = new Menu(products, discount);
+
+        int discount; //variable para el descuento
+        int total_price = 0;
+
+        String menu_mame = ""; // Nombre del menú
+
+        Menu menu = new Menu(menu_products, total_price, menu_mame);
 
         configureScreenButtons(context); // Configura los botones en la pantalla
         displayProduct(kiosk, carrousel.getCurrentProduct(), translator); // Muestra el primer producto
@@ -47,9 +54,9 @@ public class MenuScreen implements KioskScreen {
         while (true) {
             char event = kiosk.waitPressButton(); // Espera la pulsación de un botón
             switch (event) {
-                case 'C': //aun no funciona
+                case 'C': //añadir producto 1 al pedido
                     // Añadir producto actual al pedido
-                    //order.addProduct(carrousel.getCurrentProduct());
+
                     menu_products.add(carrousel.getCurrentProduct()); //nos guardará los tres elementos del menu
 
                     kiosk.setDescription(translator.translate("Producto Guardado") + ": " +
@@ -58,30 +65,55 @@ public class MenuScreen implements KioskScreen {
                     kiosk.wain1second(); //1 segundo para mostrar el mensaje de "Producto Guardado"
 
                     // Determinar la siguiente sección
-                    int nextSectionIndex = currentSectionIndex + 1;
+                    int nextSectionIndex = currentSectionIndex + 1; //pasamos a siguiente sección 0>1>2
+
                     if (nextSectionIndex < 3) { // 0:Hamburguesas, 1:Bebidas, 2:Complementos
                         String nextSectionName = getSectionName(nextSectionIndex);
                         List<IndividualProduct> nextProducts = context.getMenuCard()
-                                .getSection(nextSectionIndex).getProducts();
-                        return new MenuScreen(nextSectionName, nextProducts, nextSectionIndex);
-                    } else {
-                        // Si ya pasó por todas las secciones, ir a la pantalla de pedido
+                                .getSection(nextSectionIndex).getProducts(); // Obtenemos los productos de la siguiente sección
+
+                        //Para mantener a los productos anteriormente seleccionados durante multiples creaciones de
+                        // pantallas se debe pasar la MISMA lista en menu_products
+                        return new MenuScreen(nextSectionName, nextProducts, nextSectionIndex, menu_products);
+
+                    } else {// Si ya pasó por todas las secciones, ir a la pantalla de pedido
+
                         int menu_price_with_no_discount = 0;
-                        for (Product product : menu_products) {
+
+                        for (Product product : menu_products) { //sumamos el precio de todos los productos
                             menu_price_with_no_discount = menu_price_with_no_discount + product.getPrice();
                         }
 
-                        discount = (menu_price_with_no_discount * 20)/100; //20% descuento al menú
+                        discount = menu.getMenuDiscount(); //20% descuento al menú o el valor que sea en el txt. Devuelve 20.
 
-                        int  final_price = menu_price_with_no_discount-discount;
-                        //menu.setDiscount(discount);
+                        // Calculamos el descuento específico en céntimos: Ej. 3540 * 20 / 100 = 708 céntimos (7,08 €)
+                        int descuentoCentimos = menu_price_with_no_discount * discount / 100;
 
-                        System.out.println("Descuento: "+ discount/ 100.0f);
-                        System.out.println("Descuento SIN aplicar: "+ menu_price_with_no_discount/ 100.0f);
-                        System.out.println("Descuento aplicado: "+ final_price / 100.0f);
+                        // Calculamos el precio final en céntimos: Ej. 3540 - 708 = 2832 céntimos (28,32 €)
+                        int final_price = menu_price_with_no_discount - descuentoCentimos;
+
 
                         menu.setPrice(final_price);
-                        order.addMenu(menu);
+
+                        String menu_name = translator.translate("MENU")+"/"
+                                + translator.translate(menu_products.get(0).getName()); //el nombre será Menu + nombre de la hamburguesa
+                        menu.setMenuName(menu_name);
+
+                        //Para que veas por terminal qué se guarda.
+                        System.out.println("=============================");
+                        System.out.println(menu_name);
+                        System.out.println(discount);
+                        System.out.println(final_price);
+                        for (Product product : menu_products) {
+                            System.out.println(product.getName());
+                        }
+                        System.out.println("=============================");
+
+                        //Aqui aseguramos que el menú se guarda en el pedido como forma de paquete de 3 productos
+                        Menu thisNewMenu = new Menu(menu_products, final_price, menu_name);
+
+                        //Añadimos el menú al pedido
+                        order.addMenu(thisNewMenu);
 
                         return new OrderScreen();
                     }
@@ -110,7 +142,6 @@ public class MenuScreen implements KioskScreen {
         kiosk.setMenuMode();
         kiosk.setTitle(translator.translate(section)); // Mostrar el nombre de la sección actual
 
-        kiosk.setOption('B', translator.translate("Escoge tus")+ ": "+section);
         kiosk.setOption('C', translator.translate("Añadir Producto"));
         kiosk.setOption('D', translator.translate("Volver"));
         kiosk.setOption('G', "<");
