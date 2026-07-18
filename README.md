@@ -1,77 +1,73 @@
 # 🍔 Self-Ordering Kiosk for a Burger Restaurant (KPH)
 
-**Proyecto desarrollado para la asignatura de _Programación Orientada a Objetos_ (curso 2024/2025)**
+## 📘 General Description
+
+This project simulates the operation of a self-ordering kiosk in a burger restaurant. The system guides the user through different screens to select a language, choose individual products or meal combos, review the order, and complete the payment using a simulated credit card banking system.
+
+The system is designed following an object-oriented architecture, with a clear separation of responsibilities between classes, making it easier to maintain, understand, and extend.
+
+> **WARNING:** Make sure your development environment is properly configured and that the translation and product files (such as `catalog.xml` and the language files) are correctly set up before running the program.
 
 ---
 
-## 📘 Descripción General
+## 🧩 System Architecture
 
-Este proyecto simula el funcionamiento de un kiosco de autoservicio en una hamburguesería. El sistema guía al usuario a través de diferentes pantallas para seleccionar el idioma, elegir productos individuales o menús, revisar su pedido y efectuar el pago con tarjeta mediante un sistema bancario simulado.
+### Main Classes
 
-El diseño del sistema sigue una arquitectura orientada a objetos, con una separación clara de responsabilidades entre clases, facilitando su mantenibilidad, comprensión y escalabilidad.
+- `BurgerKioskApplication`: Main class that launches the application.
+- `KioskManager`: Controls the main program flow.
+- `Context`: Groups the required resources (translator, menu, order, etc.).
+- `SimpleKiosk`: Intermediate layer between the simulator and the application logic.
+- `TranslatorManager` / `Translator`: Handles translations and language management.
+- `MenuCard`: Reads and structures the restaurant menu.
+- `Order`: Represents the customer's order.
 
-> **WARNING:** Asegúrate de tener correctamente configurado el entorno de desarrollo y los ficheros de traducción y productos (por ejemplo, `catalog.xml` y los archivos de idioma) antes de ejecutar el programa.
+### User Interface (`KioskScreen` and derived classes)
 
----
-
-## 🧩 Arquitectura del Sistema
-
-### Clases Principales
-
-- `BurgerKioskApplication`: Clase principal que lanza la aplicación.
-- `KioskManager`: Controla el flujo principal del programa.
-- `Context`: Agrupa los recursos necesarios (traductor, carta, pedido, etc.).
-- `SimpleKiosk`: Capa intermedia entre el simulador y la lógica del programa.
-- `TranslatorManager` / `Translator`: Manejo de traducciones e idiomas.
-- `MenuCard`: Lee y estructura la carta del restaurante.
-- `Order`: Representa el pedido del cliente.
-
-### Interfaz de Usuario (`KioskScreen` y derivadas)
-
-- `WellcomeScreen`: Pantalla de inicio.
-- `IdiomScreen`: Selección de idioma.
-- `OrderScreen`: Gestión general del pedido.
-- `SectionScreen`, `ProductScreen`, `MenuScreen`: Navegación por carta y productos.
-- `CarouselScreen`: Base para pantallas con muchos elementos.
-- `PurcheaseScreen`: Confirmación y pago del pedido.
+- `WellcomeScreen`: Welcome screen.
+- `IdiomScreen`: Language selection screen.
+- `OrderScreen`: Main order management screen.
+- `SectionScreen`, `ProductScreen`, `MenuScreen`: Navigation through menu sections and products.
+- `CarouselScreen`: Base class for screens displaying many items.
+- `PurcheaseScreen`: Order confirmation and payment screen.
 
 ---
 
-## 🔁 Flujo del Usuario
+## 🔁 User Flow
 
-1. Pantalla de bienvenida.
-2. Selección de idioma.
-3. Inicio del pedido.
-4. Selección de tipo de producto o menú.
-5. Navegación tipo carrusel para seleccionar productos.
-6. Revisión del pedido.
-7. Pantalla de pago (con simulación de tarjeta).
-8. Impresión del ticket y almacenamiento del pedido.
-
----
-
-## 🌐 Internacionalización
-
-El sistema permite cambiar de idioma en cualquier momento. Las cadenas se traducen automáticamente utilizando un sistema de diccionarios gestionado por `TranslatorManager`. Para cada idioma soportado se requiere un fichero de traducción con las frases clave.
+1. Welcome screen.
+2. Language selection.
+3. Start the order.
+4. Select a product category or meal combo.
+5. Browse products using a carousel interface.
+6. Review the order.
+7. Payment screen (with simulated card payment).
+8. Receipt printing and order storage.
 
 ---
 
-## 💾 Persistencia
+## 🌐 Internationalization
 
-- Los pedidos se almacenan en disco para su posterior procesamiento.
-- El número de pedido se guarda y actualiza entre ejecuciones.
-- El sistema registra cada pedido en un fichero junto con los productos seleccionados.
+The system allows users to change the language at any time. Text strings are automatically translated using a dictionary-based system managed by `TranslatorManager`. A translation file containing the required key phrases is needed for each supported language.
 
 ---
 
-## 🧪 Simuladores Utilizados
+## 💾 Persistence
 
-- `BurgerSelfOrderKiosk`: Interfaz gráfica simulada del kiosco real.
-- `UrjcBankServer`: Simulación del sistema de pago mediante tarjeta de crédito.
+- Orders are stored on disk for later processing.
+- The order number is saved and updated between executions.
+- The system records each order in a file together with the selected products.
 
 ---
 
-## 👨‍💻 Autores
+## 🧪 Simulators Used
+
+- `BurgerSelfOrderKiosk`: Simulated graphical interface of the real kiosk.
+- `UrjcBankServer`: Simulation of a credit card payment system.
+
+---
+
+## 👨‍💻 Authors
 
 - **Víctor Hugo Oliveira Petroceli**
 - **Rubén Ruiz Martín**
